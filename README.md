@@ -1,1 +1,1 @@
-assets/pdf/.keep
+assets/pdf/Alentic_Portfolio.pdf
