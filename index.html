@@ -4,231 +4,449 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kwangwon (Andy) Lee | Team Lead / Senior Mechanical Engineer</title>
+  <meta name="description" content="Kwangwon (Andy) Lee — Team Lead / Senior Mechanical Engineer. Medical Devices, Consumer Electronics, ISO 13485. Portfolio PDFs and contact." />
 
   <style>
     :root{
-      --bg:#f7f8fa;
-      --card:#ffffff;
-      --text:#1f2328;
-      --muted:#57606a;
-      --line:#d0d7de;
-      --link:#0969da;
-      --chip:#eef1f4;
-      --shadow:0 2px 10px rgba(0,0,0,0.06);
-      --radius:12px;
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --line: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --muted2: rgba(255,255,255,0.56);
+      --brand: #7cc4ff;
+      --brand2: #a7ffcb;
+      --shadow: 0 12px 40px rgba(0,0,0,0.45);
+      --radius: 18px;
+      --radius2: 14px;
     }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-      margin:0; background:var(--bg); color:var(--text); line-height:1.6;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 650px at 15% 10%, rgba(124,196,255,0.22), transparent 55%),
+        radial-gradient(900px 520px at 88% 18%, rgba(167,255,203,0.14), transparent 55%),
+        radial-gradient(1000px 700px at 40% 95%, rgba(124,196,255,0.10), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
     }
-    .container{max-width:980px; margin:0 auto; padding:52px 22px;}
+
+    a{ color: var(--brand); text-decoration: none; font-weight: 650; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 22px 70px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .dot{
+      width:10px; height:10px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 18px rgba(124,196,255,0.55);
+    }
+
     .hero{
-      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-      padding:28px 24px; box-shadow:var(--shadow);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
     }
-    h1{font-size:40px; margin:0 0 6px;}
-    .subtitle{font-size:18px; color:var(--muted); margin:0 0 18px;}
-    .meta{
-      display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(420px 200px at 18% 0%, rgba(124,196,255,0.22), transparent 60%),
+                  radial-gradient(520px 240px at 90% 20%, rgba(167,255,203,0.16), transparent 62%);
+      pointer-events:none;
     }
+
+    .hero-inner{
+      position: relative;
+      display:grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px){
+      .hero-inner{ grid-template-columns: 1fr; }
+    }
+
+    h1{
+      margin: 0 0 6px;
+      font-size: 44px;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+
+    .subtitle{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .lead{
+      margin: 0;
+      color: rgba(255,255,255,0.86);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+
+    .kpis{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      background:var(--chip); border:1px solid var(--line);
-      padding:8px 12px; border-radius:999px; font-size:14px; color:var(--text);
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
     }
-    .pill b{font-weight:600;}
-    .grid{
-      display:grid; grid-template-columns:1fr; gap:14px; margin-top:16px;
+
+    .cta{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
     }
-    @media(min-width:900px){
-      .grid{grid-template-columns:1.1fr 0.9fr;}
-    }
-    .card{
-      background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-      padding:22px 22px; box-shadow:var(--shadow);
-    }
-    h2{
-      font-size:22px; margin:0 0 12px;
-      display:flex; align-items:center; gap:10px;
-    }
-    h3{font-size:18px; margin:0 0 6px;}
-    p{margin:10px 0;}
-    ul{margin:10px 0 0 18px; padding:0;}
-    li{margin:6px 0;}
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
-    .chip{
-      display:inline-block; background:var(--chip); border:1px solid var(--line);
-      padding:6px 10px; border-radius:999px; font-size:13px; color:var(--text);
-    }
-    a{color:var(--link); text-decoration:none; font-weight:600;}
-    a:hover{text-decoration:underline;}
-    .btnrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
+
     .btn{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid var(--line); background:var(--card);
-      padding:10px 12px; border-radius:10px; font-size:14px;
-      cursor:pointer; text-decoration:none; color:var(--text);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
     }
-    .btn:hover{border-color:#8c959f;}
-    .muted{color:var(--muted);}
+
+    .btn:hover{ background: rgba(255,255,255,0.09); text-decoration:none; }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #071018;
+      box-shadow: 0 12px 28px rgba(124,196,255,0.18);
+    }
+    .btn.primary:hover{ filter: brightness(1.03); }
+
+    .small{
+      font-size: 12px;
+      color: var(--muted2);
+      text-align: center;
+      margin: 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (max-width: 960px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius2);
+      padding: 18px 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+
+    .muted{ color: var(--muted); }
+
+    .chips{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .exp{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .role{
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.14);
+      border-radius: 14px;
+      padding: 14px 14px;
+    }
+    .role .head{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .role h3{
+      margin: 0;
+      font-size: 16px;
+    }
+    .role .title{
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .role ul{
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: rgba(255,255,255,0.82);
+    }
+    .role li{ margin: 6px 0; }
+
+    .notice{
+      border: 1px solid rgba(167,255,203,0.25);
+      background: rgba(167,255,203,0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: rgba(255,255,255,0.86);
+      margin-top: 12px;
+    }
+    .notice b{ color: rgba(255,255,255,0.95); }
+
     .footer{
-      margin-top:26px; color:var(--muted); font-size:13px;
+      margin-top: 30px;
       text-align:center;
+      color: var(--muted2);
+      font-size: 12px;
     }
-    .note{
-      background:#fff7d6; border:1px solid #f0d98c;
-      padding:12px 14px; border-radius:12px;
-      color:#3b2f00;
+
+    .row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
     }
-    .kpi{
-      display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;
-    }
-    .kpi .pill{background:#f6f8fa;}
-    .hr{height:1px; background:var(--line); margin:14px 0;}
-    code.inline{
-      background:#f6f8fa; border:1px solid var(--line); padding:2px 6px; border-radius:6px;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-      font-size:12px;
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size: 12px;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 6px 10px;
+      border-radius: 12px;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="wrap">
 
-    <!-- HERO -->
-    <div class="hero">
-      <h1>Kwangwon (Andy) Lee</h1>
-      <p class="subtitle">Team Lead / Senior Mechanical Engineer · Medical Devices & Consumer Electronics · ISO 13485</p>
-
-      <p>
-        Team lead mechanical engineer with 20+ years of experience delivering hardware products from early concept to mass production.
-        Strong hands-on background in mechanical design for injection-molded enclosures and precision assemblies, with cross-functional
-        leadership across design, suppliers, manufacturing, and quality systems.
-      </p>
-
-      <div class="meta">
-        <span class="pill"><b>CAD</b> SolidWorks · Creo (Pro/ENGINEER)</span>
-        <span class="pill"><b>Focus</b> Plastics · Assemblies · Tolerance Stack-up</span>
-        <span class="pill"><b>Quality</b> ISO 13485 · Verification / Validation</span>
-        <span class="pill"><b>Domain</b> Medical Devices · Consumer Electronics</span>
-      </div>
-
-      <div class="kpi">
-        <span class="pill"><b>Production</b> High-volume experience (100k–600k units)</span>
-        <span class="pill"><b>Strengths</b> DFM/DFA · Supplier/CM collaboration</span>
-      </div>
+    <div class="topbar">
+      <div class="badge"><span class="dot"></span> Portfolio · GitHub Pages</div>
+      <div class="badge">Medical Devices · Consumer Electronics · ISO 13485</div>
     </div>
 
-    <div class="grid">
-      <!-- LEFT COLUMN -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1>Kwangwon (Andy) Lee</h1>
+          <p class="subtitle">Team Lead / Senior Mechanical Engineer</p>
+          <p class="lead">
+            Mechanical engineer with 20+ years of experience delivering hardware from concept through mass production.
+            Strong ownership of mechanical architecture, injection-molded enclosure design, tolerance stack-up, and cross-functional leadership
+            across suppliers, manufacturing, and quality systems.
+          </p>
+
+          <div class="kpis">
+            <span class="pill">SolidWorks</span>
+            <span class="pill">Creo (Pro/ENGINEER)</span>
+            <span class="pill">Injection Molding</span>
+            <span class="pill">GD&amp;T · Stack-up</span>
+            <span class="pill">DFM/DFA</span>
+            <span class="pill">Design Transfer</span>
+            <span class="pill">High-volume: 100k–600k units</span>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="assets/pdf/Alentic_Portfolio.pdf" target="_blank" rel="noopener">
+            📄 Open Alentic Portfolio (PDF)
+          </a>
+          <a class="btn" href="assets/pdf/Pantech_Portfolio.pdf" target="_blank" rel="noopener">
+            📄 Open PANTECH Portfolio (PDF)
+          </a>
+
+          <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=a7898586@gmail.com&su=Portfolio%20Inquiry" target="_blank" rel="noopener">
+            ✉️ Email via Gmail
+          </a>
+          <p class="small">If email click doesn’t open, use Gmail button (always works).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
       <div class="card">
         <h2>Core Expertise</h2>
+        <p class="muted">High-signal keywords for recruiters and hiring managers.</p>
         <div class="chips">
           <span class="chip">Team Leadership</span>
           <span class="chip">Mechanical Architecture</span>
+          <span class="chip">Medical Device Development</span>
+          <span class="chip">ISO 13485</span>
           <span class="chip">SolidWorks</span>
           <span class="chip">Creo (Pro/ENGINEER)</span>
           <span class="chip">Consumer Electronics Design</span>
-          <span class="chip">Medical Device Development</span>
-          <span class="chip">ISO 13485</span>
           <span class="chip">Injection Molding</span>
           <span class="chip">Tolerance Stack-up</span>
           <span class="chip">GD&amp;T</span>
-          <span class="chip">DFM / DFA</span>
           <span class="chip">Tooling Release</span>
-          <span class="chip">Supplier &amp; CM Collaboration</span>
+          <span class="chip">Supplier/CM Collaboration</span>
           <span class="chip">Prototype Build</span>
           <span class="chip">Verification / Validation Testing</span>
-          <span class="chip">Design Transfer</span>
-          <span class="chip">Change Control / Design Improvements</span>
+          <span class="chip">Design Improvements</span>
+          <span class="chip">Change Control</span>
+          <span class="chip">Mass Production Support</span>
         </div>
 
-        <div class="hr"></div>
-
-        <h2>Selected Highlights</h2>
-        <ul>
-          <li>Led mechanical design ownership from concept to production, coordinating with cross-functional teams and suppliers.</li>
-          <li>Designed injection-molded housings and mechanical assemblies with GD&amp;T and tolerance stack-up focus.</li>
-          <li>Executed prototype builds and verification testing, and supported design transfer for manufacturing readiness.</li>
-          <li>Delivered high-volume consumer products with manufacturing support and tooling release experience.</li>
-        </ul>
-
-        <div class="note" style="margin-top:14px;">
+        <div class="notice">
           <b>NDA / Sharing Notice</b><br/>
-          This site contains high-level project summaries only. Detailed design files, drawings, and confidential information are not shared publicly.
+          This site includes high-level summaries only. No confidential drawings, specifications, or internal documents are shared publicly.
           Portfolio PDFs are provided for recruiting and interview purposes.
         </div>
       </div>
 
-      <!-- RIGHT COLUMN -->
       <div class="card">
-        <h2>Portfolio PDFs</h2>
-        <p class="muted">Direct links (open in a new tab):</p>
-        <div class="btnrow">
-          <a class="btn" href="assets/pdf/Alentic_Portfolio.pdf" target="_blank" rel="noopener">
-            📄 Alentic Portfolio (PDF)
-          </a>
-          <a class="btn" href="assets/pdf/Pantech_Portfolio.pdf" target="_blank" rel="noopener">
-            📄 PANTECH Portfolio (PDF)
-          </a>
+        <h2>Experience Snapshot</h2>
+        <div class="exp">
+
+          <div class="role">
+            <div class="head">
+              <div>
+                <h3>Alentic Microscience Inc.</h3>
+                <div class="title">Team Lead / Product Design Engineer</div>
+              </div>
+              <a class="btn" style="padding:8px 10px; border-radius:12px;"
+                 href="assets/pdf/Alentic_Portfolio.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
+            <ul>
+              <li>Led mechanical design and development of medical diagnostic devices under ISO 13485 processes.</li>
+              <li>Owned enclosure architecture and precision assemblies; coordinated supplier builds and iterations.</li>
+              <li>Supported verification testing and manufacturing readiness for design transfer.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="head">
+              <div>
+                <h3>PANTECH</h3>
+                <div class="title">Senior Mechanical Engineer</div>
+              </div>
+              <a class="btn" style="padding:8px 10px; border-radius:12px;"
+                 href="assets/pdf/Pantech_Portfolio.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
+            <ul>
+              <li>Designed high-volume smartphones and feature phones from concept through mass production.</li>
+              <li>Owned plastic housings, metal frames, tooling release, tolerance control, and factory support.</li>
+              <li>Delivered products manufactured at scale (100k–600k units).</li>
+            </ul>
+          </div>
+
         </div>
+      </div>
 
-        <div class="hr"></div>
-
-        <h2>Experience</h2>
-
-        <h3>Alentic Microscience Inc.</h3>
-        <p><b>Team Lead / Product Design Engineer</b></p>
-        <ul>
-          <li>Led mechanical design and development of medical diagnostic devices under ISO 13485 processes.</li>
-          <li>Owned enclosure architecture and precision mechanical assemblies; coordinated supplier collaboration and build iterations.</li>
-          <li>Supported verification testing and manufacturing readiness for design transfer.</li>
-        </ul>
-
-        <div class="hr"></div>
-
-        <h3>PANTECH</h3>
-        <p><b>Senior Mechanical Engineer</b></p>
-        <ul>
-          <li>Designed and supported high-volume smartphones and feature phones through mass production.</li>
-          <li>Owned plastic housings, metal frames, tooling release, tolerance control, and manufacturing support.</li>
-        </ul>
-
-        <div class="hr"></div>
-
+      <div class="card">
         <h2>Contact</h2>
-        <p>
-          <b>Email</b><br/>
-          <a href="mailto:a7898586@gmail.com" id="mailtoLink">a7898586@gmail.com</a>
-          <span class="muted"> (standard mailto)</span>
-        </p>
+        <p class="muted">Fast ways to reach me.</p>
 
-        <div class="btnrow">
-          <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=a7898586@gmail.com&su=Portfolio%20Inquiry" target="_blank" rel="noopener">
-            ✉️ Open Gmail Compose
-          </a>
-          <button class="btn" type="button" id="copyEmailBtn">
-            📋 Copy Email
-          </button>
+        <div class="row">
+          <span class="mono" id="emailText">a7898586@gmail.com</span>
+          <button class="btn" id="copyEmailBtn" type="button">📋 Copy</button>
+          <a class="btn" href="mailto:a7898586@gmail.com">📨 Mailto</a>
         </div>
 
-        <p style="margin-top:12px;">
-          <b>LinkedIn</b><br/>
-          <a href="http://www.linkedin.com/in/andy-kwangwon-lee" target="_blank" rel="noopener">
-            linkedin.com/in/andy-kwangwon-lee
+        <div class="row" style="margin-top:12px;">
+          <a class="btn" href="http://www.linkedin.com/in/andy-kwangwon-lee" target="_blank" rel="noopener">
+            🔗 LinkedIn: andy-kwangwon-lee
           </a>
-        </p>
+        </div>
 
-        <p class="muted" style="margin-top:10px;">
-          If clicking the email does nothing, it usually means your browser/OS has no default email handler set.
-          The “Open Gmail Compose” button will always work.
+        <p class="muted" style="margin-top:12px;">
+          If <span class="mono">mailto</span> doesn’t open, set a default email app/handler in your browser or OS.
+          The “Email via Gmail” button above will always work.
         </p>
       </div>
-    </div>
+
+      <div class="card">
+        <h2>Direct Links</h2>
+        <p class="muted">Useful for resume/LinkedIn.</p>
+
+        <div class="row">
+          <a class="btn" href="https://a7898586.github.io" target="_blank" rel="noopener">🌐 Site</a>
+          <a class="btn" href="https://a7898586.github.io/assets/pdf/Alentic_Portfolio.pdf" target="_blank" rel="noopener">📄 Alentic PDF</a>
+          <a class="btn" href="https://a7898586.github.io/assets/pdf/Pantech_Portfolio.pdf" target="_blank" rel="noopener">📄 PANTECH PDF</a>
+        </div>
+      </div>
+    </section>
 
     <div class="footer">
-      © Kwangwon (Andy) Lee · Mechanical Engineering Portfolio · Hosted on GitHub Pages
+      © Kwangwon (Andy) Lee · Team Lead / Senior Mechanical Engineer · Hosted on GitHub Pages
     </div>
   </div>
 
@@ -241,9 +459,8 @@
         try {
           await navigator.clipboard.writeText(email);
           btn.textContent = "✅ Copied";
-          setTimeout(() => (btn.textContent = "📋 Copy Email"), 1200);
+          setTimeout(() => (btn.textContent = "📋 Copy"), 1200);
         } catch (e) {
-          // Fallback for older browsers
           const tmp = document.createElement("textarea");
           tmp.value = email;
           document.body.appendChild(tmp);
@@ -251,7 +468,7 @@
           document.execCommand("copy");
           document.body.removeChild(tmp);
           btn.textContent = "✅ Copied";
-          setTimeout(() => (btn.textContent = "📋 Copy Email"), 1200);
+          setTimeout(() => (btn.textContent = "📋 Copy"), 1200);
         }
       });
     })();
