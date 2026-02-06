@@ -12,7 +12,6 @@
       --bg0:#070b14;
       --bg1:#0b1220;
       --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
       --border: rgba(255,255,255,.10);
       --text:#e5e7eb;
       --muted:#a7b0c0;
@@ -94,7 +93,14 @@
       opacity:.85;
       pointer-events:none;
     }
-    .heroInner{ position:relative; display:grid; grid-template-columns: 1.25fr .75fr; gap:22px; align-items:start; }
+
+    .heroInner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:stretch; /* ensure same height */
+    }
     @media (max-width: 980px){
       .heroInner{ grid-template-columns: 1fr; }
     }
@@ -115,10 +121,42 @@
       max-width: 66ch;
     }
 
+    /* CTA column + glow */
     .ctaCol{
-      display:flex; flex-direction:column; gap:12px;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
       align-items:stretch;
+      justify-content:flex-end; /* push block down to fill space */
+      min-height: 100%;
+      padding: 10px;
     }
+    /* subtle bottom-right glow */
+    .ctaCol::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      bottom:-60px;
+      width: 520px;
+      height: 420px;
+      background:
+        radial-gradient(circle at 65% 65%, rgba(125,211,252,.18), transparent 55%),
+        radial-gradient(circle at 40% 80%, rgba(167,139,250,.16), transparent 60%),
+        radial-gradient(circle at 75% 30%, rgba(52,211,153,.10), transparent 60%);
+      filter: blur(18px);
+      opacity: .9;
+      pointer-events:none;
+      z-index:0;
+    }
+    .ctaCard{
+      position:relative;
+      z-index:1; /* above glow */
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
     .btn{
       display:flex; align-items:center; justify-content:center; gap:10px;
       padding:14px 14px;
@@ -131,7 +169,6 @@
       transition: transform .15s ease, filter .15s ease;
     }
     .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
-    .btn small{ font-weight:600; opacity:.85; }
 
     .note{
       font-size:12.5px; color: var(--muted2);
@@ -302,25 +339,28 @@
         </div>
 
         <div class="ctaCol">
-          <!-- ✅ Single unified PDF link -->
-          <a class="btn"
-             href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
-             target="_blank" rel="noopener">
-            📄 Open Full Portfolio (PDF)
-          </a>
+          <div class="ctaCard">
+            <!-- ✅ Single unified PDF link -->
+            <a class="btn"
+               href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
+               target="_blank" rel="noopener">
+              📄 Open Full Portfolio (PDF)
+            </a>
 
-          <div class="note">
-            <b>NDA / Sharing Notice</b><br/>
-            This site includes high-level summaries only. No confidential drawings, specifications,
-            or internal documents are shared publicly. The PDF is provided for recruiting/interview purposes.
-          </div>
+            <div class="note">
+              <b>NDA / Sharing Notice</b><br/>
+              This site includes high-level summaries only. No confidential drawings, specifications,
+              or internal documents are shared publicly. The PDF is provided for recruiting/interview purposes.
+            </div>
 
-          <div class="note" style="border-color: rgba(52,211,153,.18);">
-            <b style="color:#baf7dd;">Quick Tip</b><br/>
-            If a PDF link shows 404, confirm the PDF file is uploaded to the repo root
-            and the filename matches exactly (including spaces/underscores).
+            <div class="note" style="border-color: rgba(52,211,153,.18);">
+              <b style="color:#baf7dd;">Quick Tip</b><br/>
+              If a PDF link shows 404, confirm the PDF file is uploaded to the repo root
+              and the filename matches exactly (including spaces/underscores).
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
