@@ -117,34 +117,95 @@
       max-width: 66ch;
     }
 
-    /* CTA column + glow */
+    /* RIGHT column container */
     .ctaCol{
       position:relative;
       display:flex;
       flex-direction:column;
       gap:12px;
       align-items:stretch;
-      justify-content:flex-end; /* desktop: anchored bottom */
+      justify-content:space-between; /* ✅ key: fill vertical space */
       min-height: 100%;
       padding: 10px;
-      order: 2; /* desktop default: right column remains after left in DOM order */
     }
+
+    /* ✅ stronger (still subtle) top-right fill glow */
     .ctaCol::after{
       content:"";
       position:absolute;
-      right:-40px;
-      bottom:-60px;
+      right:-80px;
+      top:-80px;                 /* ✅ move glow to the empty area */
       width: 520px;
-      height: 420px;
+      height: 520px;
       background:
-        radial-gradient(circle at 65% 65%, rgba(125,211,252,.18), transparent 55%),
-        radial-gradient(circle at 40% 80%, rgba(167,139,250,.16), transparent 60%),
-        radial-gradient(circle at 75% 30%, rgba(52,211,153,.10), transparent 60%);
+        radial-gradient(circle at 70% 35%, rgba(125,211,252,.20), transparent 55%),
+        radial-gradient(circle at 55% 55%, rgba(167,139,250,.18), transparent 60%),
+        radial-gradient(circle at 35% 70%, rgba(52,211,153,.10), transparent 62%);
       filter: blur(18px);
-      opacity: .9;
+      opacity: .95;
       pointer-events:none;
       z-index:0;
     }
+
+    /* ✅ NEW: a subtle "focus panel" occupying the empty top area */
+    .ctaSpacer{
+      position:relative;
+      z-index:1;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(300px 220px at 70% 25%, rgba(125,211,252,.14), transparent 60%),
+        radial-gradient(280px 220px at 35% 55%, rgba(167,139,250,.12), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: 0 10px 24px rgba(0,0,0,.28);
+      min-height: 170px;         /* ✅ fill the “empty” space */
+      overflow:hidden;
+    }
+    .ctaSpacer::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(420px 260px at 80% 0%, rgba(125,211,252,.10), transparent 60%),
+        radial-gradient(420px 260px at 10% 100%, rgba(167,139,250,.10), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .ctaSpacerInner{
+      position:relative;
+      padding: 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .miniStatRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .miniStat{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:12.5px;
+      white-space:nowrap;
+    }
+    .miniStat b{
+      color:#eaf0ff;
+      font-weight:800;
+    }
+    .ctaSpacerTitle{
+      font-size:13px;
+      color: var(--muted2);
+      line-height:1.45;
+      margin:0;
+    }
+
     .ctaCard{
       position:relative;
       z-index:1;
@@ -300,31 +361,27 @@
 
     /* ✅ Mobile responsiveness:
        - stack into 1 column
-       - CTA moves to TOP (above text) for quick action
-       - CTA no longer bottom-anchored
+       - CTA moves to TOP (above text)
+       - top filler panel collapses (no need on mobile)
     */
     @media (max-width: 980px){
-      .heroInner{
-        grid-template-columns: 1fr;
-      }
-      .ctaCol{
-        order: 0;                 /* move CTA to top */
-        justify-content:flex-start;/* top aligned on mobile */
-        padding: 0;
-        margin-bottom: 10px;
-      }
-      .ctaCol::after{
-        right:-80px;
-        bottom:-120px;
-        width: 520px;
-        height: 420px;
-        opacity: .75;
-      }
+      .heroInner{ grid-template-columns: 1fr; }
+      /* Move CTA first */
+      .ctaCol{ order:-1; justify-content:flex-start; padding:0; }
+      .ctaSpacer{ min-height: 0; }
+      .ctaSpacerInner{ padding: 0; }
+      .ctaSpacer{ display:none; } /* ✅ remove empty filler on mobile */
       .hero{ padding: 22px; }
       h1{ font-size: 36px; }
       .headline{ margin-bottom: 12px; }
+      .ctaCol::after{
+        right:-120px;
+        top:-140px;
+        width: 520px;
+        height: 520px;
+        opacity: .75;
+      }
     }
-
     @media (max-width: 520px){
       .btnRow{ grid-template-columns: 1fr; }
       .btn{ padding: 13px 12px; }
@@ -351,7 +408,7 @@
       <div class="heroInner">
 
         <!-- LEFT: main content -->
-        <div style="order:1;">
+        <div>
           <h1>Kwangwon (Andy) Lee</h1>
           <p class="subtitle">Senior Mechanical Design Engineer · Medical Devices · Electro-Mechanical Systems · DFM/DFA</p>
 
@@ -393,8 +450,28 @@
 
         <!-- RIGHT: CTA -->
         <div class="ctaCol">
+          <!-- ✅ Fill top empty area with an intentional panel -->
+          <div class="ctaSpacer">
+            <div class="ctaSpacerInner">
+              <p class="ctaSpacerTitle" style="margin:0;">
+                <b style="color:#eaf0ff;">Quick Profile</b><br/>
+                High-signal summary for recruiters and hiring managers.
+              </p>
+              <div class="miniStatRow">
+                <span class="miniStat"><b>20+</b> years</span>
+                <span class="miniStat"><b>ISO 13485</b> design controls</span>
+                <span class="miniStat"><b>Hinge</b> mechanisms</span>
+                <span class="miniStat"><b>DFM/DFA</b> + tooling</span>
+                <span class="miniStat"><b>1M+</b> units</span>
+              </div>
+              <p class="ctaSpacerTitle" style="margin:0;">
+                Download the full PDF for detailed case studies, visuals, and results.
+              </p>
+            </div>
+          </div>
+
           <div class="ctaCard">
-            <!-- ✅ Split into OPEN + DOWNLOAD (same unified PDF) -->
+            <!-- ✅ Split into OPEN + DOWNLOAD -->
             <div class="btnRow">
               <a class="btn btnPrimary"
                  href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
@@ -404,7 +481,7 @@
 
               <a class="btn btnGhost"
                  href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
-                 download>
+                 download="Andy_Lee_Mechanical_Portfolio_2026.pdf">
                 ⬇️ Download
               </a>
             </div>
