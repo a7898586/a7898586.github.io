@@ -4,195 +4,367 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Andy Lee | Mechanical Engineering Portfolio</title>
+  <meta name="description" content="Senior Mechanical Design Engineer — Medical Devices • Electro-Mechanical • DFM/DFA. Download full portfolio PDF." />
+  <meta name="theme-color" content="#0b1220" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: radial-gradient(circle at top, #1f2937, #0f172a);
-      color: #e5e7eb;
+    :root{
+      --bg0:#070b14;
+      --bg1:#0b1220;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --border: rgba(255,255,255,.10);
+      --text:#e5e7eb;
+      --muted:#a7b0c0;
+      --muted2:#8c95a6;
+      --brand:#7dd3fc;
+      --brand2:#a78bfa;
+      --ok:#34d399;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
     }
 
-    a { text-decoration: none; color: inherit; }
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 12% 10%, rgba(125,211,252,.18), transparent 60%),
+        radial-gradient(700px 420px at 88% 18%, rgba(167,139,250,.18), transparent 60%),
+        radial-gradient(900px 520px at 50% 110%, rgba(52,211,153,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1120px; margin:0 auto; padding:42px 22px 86px; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
+    /* Top */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; margin-bottom:18px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius:999px;
+      font-size:13px;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 3px rgba(125,211,252,.12);
+    }
+    .toplinks{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .mini{
+      padding:8px 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      font-size:13px;
+      color: var(--muted);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .mini:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(550px 220px at 20% 0%, rgba(125,211,252,.20), transparent 60%),
+        radial-gradient(520px 240px at 85% 10%, rgba(167,139,250,.18), transparent 60%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .heroInner{ position:relative; display:grid; grid-template-columns: 1.25fr .75fr; gap:22px; align-items:start; }
+    @media (max-width: 980px){
+      .heroInner{ grid-template-columns: 1fr; }
     }
 
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      font-size: 13px;
-      margin-bottom: 16px;
+    h1{
+      margin:0 0 8px; font-size:44px; letter-spacing:-.02em;
+    }
+    .subtitle{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-size:16px;
+    }
+    .headline{
+      margin:0 0 18px;
+      font-size:15.5px;
+      line-height:1.7;
+      color:#d7deea;
+      max-width: 66ch;
     }
 
-    h1 {
-      font-size: 42px;
-      margin: 8px 0 6px;
+    .ctaCol{
+      display:flex; flex-direction:column; gap:12px;
+      align-items:stretch;
+    }
+    .btn{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      font-weight:700;
+      background: linear-gradient(135deg, rgba(125,211,252,.92), rgba(167,139,250,.92));
+      color:#07101e;
+      box-shadow: 0 10px 25px rgba(125,211,252,.14);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    .btn small{ font-weight:600; opacity:.85; }
+
+    .note{
+      font-size:12.5px; color: var(--muted2);
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      backdrop-filter: blur(8px);
     }
 
-    h2 {
-      font-size: 22px;
-      margin: 0 0 20px;
-      color: #9ca3af;
-      font-weight: 500;
+    /* Metrics */
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    @media (max-width: 720px){
+      .metrics{ grid-template-columns: 1fr; }
+    }
+    .metric{
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+    }
+    .metric .big{
+      font-size:28px; font-weight:800; letter-spacing:-.02em;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      -webkit-background-clip: text; background-clip:text; color: transparent;
+    }
+    .metric .lab{ font-weight:700; margin-top:2px; }
+    .metric .desc{ color: var(--muted2); font-size:13px; margin-top:6px; line-height:1.45; }
+
+    /* Tags */
+    .tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .tag{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:13px;
     }
 
-    p {
-      max-width: 760px;
-      line-height: 1.6;
-      color: #d1d5db;
+    /* Sections */
+    .sectionGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:20px;
     }
-
-    .primary-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 26px;
-      margin-top: 28px;
-      background: linear-gradient(135deg, #60a5fa, #93c5fd);
-      color: #0f172a;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 16px;
+    @media (max-width: 980px){
+      .sectionGrid{ grid-template-columns: 1fr; }
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 48px;
+    .card{
+      padding:18px 18px;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
     }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 14px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
+    .card h3{
+      margin:0 0 12px;
+      font-size:16px;
+      letter-spacing:-.01em;
     }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 18px;
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom:10px;
+      color: var(--muted2);
+      font-size:13px;
     }
-
-    ul {
-      padding-left: 18px;
-      margin: 0;
+    .kbadge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size:12px;
     }
+    ul{ margin:0; padding-left:18px; color:#d7deea; }
+    li{ margin:8px 0; }
+    .fine{ color: var(--muted2); font-size:13px; line-height:1.55; }
 
-    li {
-      margin-bottom: 8px;
-      color: #d1d5db;
+    /* Footer */
+    footer{
+      margin-top:26px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:space-between;
+      color: var(--muted2);
+      font-size:13px;
     }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+    .footerLinks a{
+      color:#a5b4fc;
+      margin-left:14px;
     }
+    .footerLinks a:hover{ text-decoration: underline; }
 
-    .tag {
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    footer {
-      margin-top: 72px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      color: #9ca3af;
-    }
-
-    .links a {
-      margin-right: 16px;
-      color: #93c5fd;
+    /* subtle entrance */
+    .fadeUp{ animation: fadeUp .45s ease both; }
+    .d1{ animation-delay: .05s; } .d2{ animation-delay: .12s; } .d3{ animation-delay: .18s; }
+    @keyframes fadeUp{
+      from{ opacity:0; transform: translateY(10px); }
+      to{ opacity:1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="wrap">
 
-    <span class="badge">Portfolio · GitHub Pages</span>
+    <div class="topbar fadeUp d1">
+      <div class="pill"><span class="dot"></span> Portfolio · GitHub Pages</div>
 
-    <h1>Kwangwon (Andy) Lee</h1>
-    <h2>Senior Mechanical Design Engineer · Medical Devices · Electro-Mechanical · DFM/DFA</h2>
-
-    <p>
-      Mechanical engineer with 20+ years of experience delivering hardware from concept
-      through stable mass production. Strong ownership of mechanical architecture,
-      precision hinge mechanisms, injection-molded enclosures, tolerance stack-up,
-      and cross-functional execution across suppliers, manufacturing, and quality systems.
-    </p>
-
-    <a class="primary-btn"
-       href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
-       target="_blank">
-       📄 Open Full Portfolio (PDF)
-    </a>
-
-    <div class="tags">
-      <span class="tag">SolidWorks</span>
-      <span class="tag">Creo (Pro/ENGINEER)</span>
-      <span class="tag">Injection Molding</span>
-      <span class="tag">GD&T / Stack-up</span>
-      <span class="tag">DFM / DFA</span>
-      <span class="tag">ISO 13485</span>
-      <span class="tag">High-Volume Production</span>
+      <div class="toplinks">
+        <a class="mini" href="https://linkedin.com/in/andy-kwangwon-lee" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="mini" href="mailto:a7898586@gmail.com">Email</a>
+      </div>
     </div>
 
-    <div class="grid">
+    <section class="hero fadeUp d2">
+      <div class="heroInner">
+        <div>
+          <h1>Kwangwon (Andy) Lee</h1>
+          <p class="subtitle">Senior Mechanical Design Engineer · Medical Devices · Electro-Mechanical Systems · DFM/DFA</p>
+
+          <p class="headline">
+            Mechanical engineer with 20+ years of experience delivering hardware from concept through stable mass production.
+            Strong ownership of mechanical architecture, precision hinge and linkage mechanisms, injection-molded enclosures,
+            tolerance stack-up, and cross-functional execution across suppliers, manufacturing, and quality systems.
+          </p>
+
+          <div class="metrics">
+            <div class="metric">
+              <div class="big">1M+</div>
+              <div class="lab">Units Deployed</div>
+              <div class="desc">Production-ready architectures used at scale across product lines.</div>
+            </div>
+            <div class="metric">
+              <div class="big">30%</div>
+              <div class="lab">Cost Reduction</div>
+              <div class="desc">Manufacturing cost reduction through DFM/DFA and molding transitions.</div>
+            </div>
+            <div class="metric">
+              <div class="big">20%</div>
+              <div class="lab">Downtime Reduction</div>
+              <div class="desc">FMEA-driven reliability improvements and mechanism optimization.</div>
+            </div>
+          </div>
+
+          <div class="tags">
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Creo (Pro/E)</span>
+            <span class="tag">Siemens NX</span>
+            <span class="tag">Injection Molding</span>
+            <span class="tag">GD&amp;T / Stack-up</span>
+            <span class="tag">Tooling Validation</span>
+            <span class="tag">ISO 13485</span>
+            <span class="tag">Design Transfer</span>
+          </div>
+        </div>
+
+        <div class="ctaCol">
+          <!-- ✅ Single unified PDF link -->
+          <a class="btn"
+             href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
+             target="_blank" rel="noopener">
+            📄 Open Full Portfolio (PDF)
+          </a>
+
+          <div class="note">
+            <b>NDA / Sharing Notice</b><br/>
+            This site includes high-level summaries only. No confidential drawings, specifications,
+            or internal documents are shared publicly. The PDF is provided for recruiting/interview purposes.
+          </div>
+
+          <div class="note" style="border-color: rgba(52,211,153,.18);">
+            <b style="color:#baf7dd;">Quick Tip</b><br/>
+            If a PDF link shows 404, confirm the PDF file is uploaded to the repo root
+            and the filename matches exactly (including spaces/underscores).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sectionGrid fadeUp d3">
       <div class="card">
-        <h3>Alentic Microscience</h3>
+        <div class="kicker">
+          <span class="kbadge">Selected Case Study</span>
+          <span class="kbadge">Medical Device</span>
+          <span class="kbadge">ISO 13485</span>
+        </div>
+        <h3>Alentic Microscience — Portable CBC Diagnostic System</h3>
         <ul>
-          <li>Owned mechanical architecture under ISO 13485</li>
-          <li>Designed and validated lid hinge mechanisms</li>
-          <li>30% cost reduction, 20% downtime reduction</li>
+          <li>Owned design and validation of <b>lid hinge mechanism</b> and flexible PCBA integration.</li>
+          <li>Ensured DFM readiness and design controls under ISO 13485.</li>
+          <li>Delivered measurable outcomes: cost-down, downtime reduction, rapid COVID-19 kit response.</li>
         </ul>
+        <p class="fine" style="margin-top:10px;">
+          Full details, visuals, and results are documented in the portfolio PDF.
+        </p>
       </div>
 
       <div class="card">
-        <h3>Pantech</h3>
+        <div class="kicker">
+          <span class="kbadge">Selected Case Study</span>
+          <span class="kbadge">High-Volume</span>
+          <span class="kbadge">Consumer Electronics</span>
+        </div>
+        <h3>Pantech — Smartphones &amp; Mobile Devices</h3>
         <ul>
-          <li>Led mechanical design across 15+ programs</li>
-          <li>Slider & flip hinge mechanisms</li>
-          <li>200k–1M+ units per model</li>
+          <li>Led mechanical design across <b>15+ programs</b> with tight packaging constraints.</li>
+          <li>Designed <b>slider &amp; flip hinge mechanisms</b>; executed tolerance analysis and factory validation.</li>
+          <li>Delivered at scale: <b>200k–1M+</b> units/model; recognized with Best Engineer Award (2011).</li>
         </ul>
-      </div>
-
-      <div class="card">
-        <h3>Expertise Focus</h3>
-        <ul>
-          <li>Precision hinge & linkage mechanisms</li>
-          <li>DFM/DFA and tooling release</li>
-          <li>Design transfer & mass production support</li>
-        </ul>
+        <p class="fine" style="margin-top:10px;">
+          Full program scope and design ownership are included in the portfolio PDF.
+        </p>
       </div>
     </div>
 
     <footer>
-      <div>
-        Toronto, ON ·
-        <a href="mailto:a7898586@gmail.com">a7898586@gmail.com</a>
-      </div>
-      <div class="links">
-        <a href="Andy_Lee%20Mechanical_Portfolio_2026.pdf" target="_blank">Portfolio PDF</a>
-        <a href="https://linkedin.com/in/andy-kwangwon-lee" target="_blank">LinkedIn</a>
+      <div>Toronto, ON · <a href="mailto:a7898586@gmail.com" style="color:#c7d2fe;">a7898586@gmail.com</a> · +1 226-789-8586</div>
+      <div class="footerLinks">
+        <a href="Andy_Lee%20Mechanical_Portfolio_2026.pdf" target="_blank" rel="noopener">Portfolio PDF</a>
+        <a href="https://linkedin.com/in/andy-kwangwon-lee" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
 
