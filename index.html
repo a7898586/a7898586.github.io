@@ -11,7 +11,6 @@
     :root{
       --bg0:#070b14;
       --bg1:#0b1220;
-      --card: rgba(255,255,255,.06);
       --border: rgba(255,255,255,.10);
       --text:#e5e7eb;
       --muted:#a7b0c0;
@@ -99,10 +98,7 @@
       display:grid;
       grid-template-columns: 1.25fr .75fr;
       gap:22px;
-      align-items:stretch; /* ensure same height */
-    }
-    @media (max-width: 980px){
-      .heroInner{ grid-template-columns: 1fr; }
+      align-items:stretch;
     }
 
     h1{
@@ -128,11 +124,11 @@
       flex-direction:column;
       gap:12px;
       align-items:stretch;
-      justify-content:flex-end; /* push block down to fill space */
+      justify-content:flex-end; /* desktop: anchored bottom */
       min-height: 100%;
       padding: 10px;
+      order: 2; /* desktop default: right column remains after left in DOM order */
     }
-    /* subtle bottom-right glow */
     .ctaCol::after{
       content:"";
       position:absolute;
@@ -151,24 +147,44 @@
     }
     .ctaCard{
       position:relative;
-      z-index:1; /* above glow */
+      z-index:1;
       display:flex;
       flex-direction:column;
       gap:12px;
     }
 
+    /* Open/Download buttons */
+    .btnRow{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
     .btn{
       display:flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 14px;
+      padding:14px 12px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.16);
-      font-weight:700;
+      font-weight:800;
+      transition: transform .15s ease, filter .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+
+    .btnPrimary{
       background: linear-gradient(135deg, rgba(125,211,252,.92), rgba(167,139,250,.92));
       color:#07101e;
       box-shadow: 0 10px 25px rgba(125,211,252,.14);
-      transition: transform .15s ease, filter .15s ease;
     }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    .btnGhost{
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.14);
+      color: #eaf0ff;
+    }
+    .btnGhost:hover{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.20);
+    }
 
     .note{
       font-size:12.5px; color: var(--muted2);
@@ -281,6 +297,41 @@
       from{ opacity:0; transform: translateY(10px); }
       to{ opacity:1; transform: translateY(0); }
     }
+
+    /* ✅ Mobile responsiveness:
+       - stack into 1 column
+       - CTA moves to TOP (above text) for quick action
+       - CTA no longer bottom-anchored
+    */
+    @media (max-width: 980px){
+      .heroInner{
+        grid-template-columns: 1fr;
+      }
+      .ctaCol{
+        order: 0;                 /* move CTA to top */
+        justify-content:flex-start;/* top aligned on mobile */
+        padding: 0;
+        margin-bottom: 10px;
+      }
+      .ctaCol::after{
+        right:-80px;
+        bottom:-120px;
+        width: 520px;
+        height: 420px;
+        opacity: .75;
+      }
+      .hero{ padding: 22px; }
+      h1{ font-size: 36px; }
+      .headline{ margin-bottom: 12px; }
+    }
+
+    @media (max-width: 520px){
+      .btnRow{ grid-template-columns: 1fr; }
+      .btn{ padding: 13px 12px; }
+      .wrap{ padding: 34px 16px 70px; }
+      .hero{ padding: 18px; }
+      h1{ font-size: 32px; }
+    }
   </style>
 </head>
 
@@ -298,7 +349,9 @@
 
     <section class="hero fadeUp d2">
       <div class="heroInner">
-        <div>
+
+        <!-- LEFT: main content -->
+        <div style="order:1;">
           <h1>Kwangwon (Andy) Lee</h1>
           <p class="subtitle">Senior Mechanical Design Engineer · Medical Devices · Electro-Mechanical Systems · DFM/DFA</p>
 
@@ -338,14 +391,23 @@
           </div>
         </div>
 
+        <!-- RIGHT: CTA -->
         <div class="ctaCol">
           <div class="ctaCard">
-            <!-- ✅ Single unified PDF link -->
-            <a class="btn"
-               href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
-               target="_blank" rel="noopener">
-              📄 Open Full Portfolio (PDF)
-            </a>
+            <!-- ✅ Split into OPEN + DOWNLOAD (same unified PDF) -->
+            <div class="btnRow">
+              <a class="btn btnPrimary"
+                 href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
+                 target="_blank" rel="noopener">
+                🔎 Open PDF
+              </a>
+
+              <a class="btn btnGhost"
+                 href="Andy_Lee%20Mechanical_Portfolio_2026.pdf"
+                 download>
+                ⬇️ Download
+              </a>
+            </div>
 
             <div class="note">
               <b>NDA / Sharing Notice</b><br/>
