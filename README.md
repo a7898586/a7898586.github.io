@@ -1,4 +1,4 @@
-# Andy Lee — Senior Mechanical Design Engineer
+# Andy Lee — Senior Mechanical Design Lead
 
 Medical Devices • Electro-Mechanical Systems • DFM/DFA  
 1M+ units deployed | 30% cost reduction | 20% downtime reduction
