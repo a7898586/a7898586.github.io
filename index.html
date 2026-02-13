@@ -11,7 +11,6 @@
     :root{
       --bg:#0b1020;
       --panel:#0f1630;
-      --panel2:#0c132a;
       --text:#e9ecf6;
       --muted:#b7bfd6;
       --muted2:#95a1c4;
@@ -45,23 +44,22 @@
     a{ color:inherit; text-decoration:none; }
     a:hover{ text-decoration:underline; text-underline-offset:3px; }
 
-    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 64px; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:22px 18px 64px; }
+
+    /* TOPBAR */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(10,14,30,.55);
+      background: rgba(10,14,30,.60);
       border-bottom:1px solid var(--line);
     }
     .topbar .inner{
       max-width:var(--max); margin:0 auto;
-      padding:14px 18px;
+      padding:12px 18px;
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
+      gap:12px;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      min-width: 240px;
-    }
+    .brand{ display:flex; align-items:center; gap:10px; }
     .mark{
       width:34px; height:34px; border-radius:12px;
       background:
@@ -70,16 +68,13 @@
         linear-gradient(135deg, rgba(125,211,252,.28), rgba(167,139,250,.22));
       border:1px solid rgba(255,255,255,.14);
       box-shadow: 0 10px 20px rgba(0,0,0,.25);
+      flex:0 0 auto;
     }
     .brand .name{ line-height:1.15; }
     .brand .name strong{ display:block; font-size:14px; letter-spacing:.2px; }
     .brand .name span{ display:block; font-size:12px; color:var(--muted2); }
 
-    nav{
-      display:flex; flex-wrap:wrap;
-      align-items:center; gap:10px;
-      justify-content:flex-end;
-    }
+    nav{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:flex-end; }
     .pill{
       padding:8px 10px;
       border:1px solid var(--line);
@@ -93,20 +88,10 @@
       color:var(--text);
       text-decoration:none;
     }
-    .cta{
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:12px;
-      border:1px solid rgba(125,211,252,.35);
-      background: linear-gradient(135deg, rgba(125,211,252,.18), rgba(167,139,250,.16));
-      color:var(--text);
-      box-shadow: 0 10px 18px rgba(0,0,0,.22);
-    }
-    .cta:hover{ text-decoration:none; border-color: rgba(167,139,250,.55); }
 
-    /* hero */
+    /* HERO */
     .hero{
-      padding:38px 0 10px;
+      padding:18px 0 10px;
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:18px;
@@ -114,7 +99,7 @@
     }
     @media (max-width: 940px){
       .hero{ grid-template-columns:1fr; }
-      .brand{ min-width:auto; }
+      nav{ display:none; } /* keep it clean on mobile */
     }
 
     .card{
@@ -126,23 +111,75 @@
     }
     .card .pad{ padding:22px; }
 
-    h1{
-      margin:0;
-      font-size:34px;
-      letter-spacing:-.5px;
-      line-height:1.12;
+    h1{ margin:0; font-size:34px; letter-spacing:-.5px; line-height:1.12; }
+    .subtitle{ margin-top:10px; color:var(--muted); font-size:14px; line-height:1.6; max-width: 70ch; }
+
+    /* BIG DOWNLOAD STRIP (Primary CTA) */
+    .downloadStrip{
+      margin-top:16px;
+      border-radius: 18px;
+      border:1px solid rgba(125,211,252,.35);
+      background:
+        radial-gradient(700px 220px at 20% 0%, rgba(125,211,252,.22), transparent 55%),
+        radial-gradient(700px 220px at 80% 100%, rgba(167,139,250,.18), transparent 55%),
+        linear-gradient(135deg, rgba(125,211,252,.16), rgba(167,139,250,.12));
+      padding:14px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow: 0 14px 30px rgba(0,0,0,.25);
     }
-    .subtitle{
-      margin-top:10px;
-      color:var(--muted);
+    .downloadStrip .left{
+      display:flex; flex-direction:column; gap:4px;
+      min-width: 0;
+    }
+    .downloadStrip .title{
       font-size:14px;
-      line-height:1.6;
-      max-width: 70ch;
+      font-weight:700;
+      letter-spacing:.2px;
     }
-    .tagrow{
-      display:flex; flex-wrap:wrap;
-      gap:8px; margin-top:16px;
+    .downloadStrip .hint{
+      font-size:12px;
+      color:rgba(233,236,246,.85);
+      opacity:.92;
+      line-height:1.35;
     }
+    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line2);
+      background: rgba(255,255,255,.04);
+      font-size:13.5px;
+      color:var(--text);
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{ text-decoration:none; border-color: rgba(125,211,252,.38); }
+
+    .btn.primary{
+      border-color: rgba(125,211,252,.55);
+      background: linear-gradient(135deg, rgba(125,211,252,.28), rgba(167,139,250,.20));
+      font-weight:700;
+      padding:13px 16px;
+      box-shadow: 0 12px 22px rgba(0,0,0,.20);
+      transform: translateY(0);
+    }
+    .btn.primary:hover{
+      border-color: rgba(167,139,250,.65);
+      transform: translateY(-1px);
+    }
+    .btn.secondary{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.03);
+    }
+
+    /* Reduced text density */
+    .tagrow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
     .tag{
       font-size:12px; color:var(--text);
       padding:7px 10px;
@@ -150,164 +187,39 @@
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
     }
-    .tag b{ color:var(--accent); font-weight:600; }
+    .tag b{ color:var(--accent); font-weight:650; }
 
-    .quick{
+    .metrics{
+      margin-top:14px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap:12px;
-      margin-top:18px;
     }
-    .mini{
+    @media (max-width: 940px){ .metrics{ grid-template-columns:1fr; } }
+    .metric{
       border:1px solid var(--line);
-      background: rgba(0,0,0,.16);
+      background: rgba(0,0,0,.14);
       border-radius:16px;
       padding:14px;
     }
-    .mini .k{ font-size:11px; color:var(--muted2); text-transform:uppercase; letter-spacing:.08em; }
-    .mini .v{ margin-top:6px; font-size:13px; line-height:1.35; }
-    .mini .v code{
-      font-family: var(--mono);
-      font-size: 12px;
-      color: rgba(233,236,246,.92);
-    }
-
-    .actions{
-      display:flex; flex-wrap:wrap;
-      gap:10px; margin-top:18px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:11px 14px;
-      border-radius:14px;
-      border:1px solid var(--line2);
-      background: rgba(255,255,255,.04);
-      font-size:13px;
-      color:var(--text);
-      cursor:pointer;
-    }
-    .btn:hover{ text-decoration:none; border-color: rgba(125,211,252,.38); }
-    .btn.primary{
-      border-color: rgba(125,211,252,.45);
-      background: linear-gradient(135deg, rgba(125,211,252,.20), rgba(167,139,250,.16));
-    }
-    .btn.primary:hover{ border-color: rgba(167,139,250,.58); }
-
-    /* right panel */
-    .sidehead{
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap:12px;
-      margin-bottom: 10px;
-    }
-    .sidehead h2{
-      margin:0;
-      font-size:16px;
+    .metric .big{
+      font-size:22px;
+      font-weight:800;
       letter-spacing:.2px;
+      color: rgba(233,236,246,.98);
     }
-    .muted{ color:var(--muted); }
-
-    .timeline{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top: 10px;
-    }
-    .titem{
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.14);
-      border-radius: 16px;
-      padding:14px;
-    }
-    .titem .top{
-      display:flex; flex-wrap:wrap hookup
-      justify-content:space-between;
-      gap:8px;
-      align-items:baseline;
-    }
-    .titem .role{
-      font-weight:650;
-      font-size:13px;
-    }
-    .titem .when{
+    .metric .label{
+      margin-top:6px;
       font-size:12px;
-      color: var(--muted2);
-      font-family: var(--mono);
-    }
-    .titem .desc{
-      margin-top:8px;
-      font-size:12.5px;
-      color: var(--muted);
-      line-height:1.55;
-    }
-
-    /* sections */
-    section{ margin-top:22px; }
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
-    @media (max-width: 940px){
-      .grid2{ grid-template-columns:1fr; }
-    }
-    .section-title{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      padding:18px 22px 0;
-    }
-    .section-title h2{
-      margin:0;
-      font-size:16px;
-      letter-spacing:.2px;
-    }
-    .section-title p{
-      margin:0;
       color:var(--muted2);
-      font-size:12px;
+      line-height:1.35;
     }
 
-    .list{
-      padding: 10px 22px 20px;
-      display:grid;
-      gap:10px;
-    }
-    .item{
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.14);
-      border-radius: 16px;
-      padding:14px;
-    }
-    .item .hdr{
-      display:flex; flex-wrap:wrap;
-      gap:10px;
-      align-items:baseline;
-      justify-content:space-between;
-    }
-    .item .hdr strong{
-      font-size:13px;
-      letter-spacing:.1px;
-    }
-    .item .meta{
-      color:var(--muted2);
-      font-size:12px;
-      font-family: var(--mono);
-    }
-    .item ul{
-      margin:10px 0 0 18px;
-      padding:0;
-      color:var(--muted);
-      font-size:12.5px;
-      line-height:1.55;
-    }
-    .item li{ margin:6px 0; }
-
+    /* Right panel: shorter, cleaner */
+    h2{ margin:0; font-size:16px; letter-spacing:.2px; }
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:12px;
-      padding:6px 10px;
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; padding:6px 10px;
       border-radius:999px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
@@ -318,26 +230,71 @@
       background: var(--accent);
       box-shadow: 0 0 0 4px rgba(125,211,252,.12);
     }
+    .sidehead{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }
 
-    /* footer */
+    .kv{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.14);
+      border-radius:16px;
+      padding:14px;
+      display:grid;
+      gap:10px;
+    }
+    .kv .row{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding-bottom:10px;
+    }
+    .kv .row:last-child{ border-bottom:none; padding-bottom:0; }
+    .kv .k{ font-size:12px; color:var(--muted2); }
+    .kv .v{ font-size:12.5px; color:var(--muted); line-height:1.5; max-width: 60ch; text-align:right; }
+
+    /* Sections */
+    section{ margin-top:16px; }
+    .section-title{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; padding:18px 22px 0;
+    }
+    .section-title p{ margin:0; color:var(--muted2); font-size:12px; }
+
+    .list{ padding: 10px 22px 20px; display:grid; gap:10px; }
+    .item{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.14);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .item .hdr{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:baseline; justify-content:space-between;
+    }
+    .item .hdr strong{ font-size:13px; letter-spacing:.1px; }
+    .item .meta{ color:var(--muted2); font-size:12px; font-family: var(--mono); }
+    .item ul{
+      margin:10px 0 0 18px;
+      padding:0;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.55;
+    }
+    .item li{ margin:6px 0; }
+    .item li b{ color: rgba(233,236,246,.96); }
+
+    /* Footer */
     footer{
-      margin-top: 18px;
+      margin-top: 16px;
       padding: 18px 0 0;
       color: var(--muted2);
       font-size: 12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+      display:flex; flex-wrap:wrap; gap:10px;
       justify-content:space-between;
       border-top: 1px solid var(--line);
     }
-    .smalllinks{
-      display:flex; flex-wrap:wrap; gap:10px;
-    }
+    .smalllinks{ display:flex; flex-wrap:wrap; gap:10px; }
     .smalllinks a{ color: var(--muted); }
     .smalllinks a:hover{ color: var(--text); }
 
-    /* toast */
+    /* Toast */
     .toast{
       position: fixed;
       left: 50%;
@@ -387,74 +344,79 @@
       </div>
 
       <nav aria-label="Primary">
-        <a class="pill" href="#highlights">Highlights</a>
         <a class="pill" href="#case-studies">Case Studies</a>
-        <a class="pill" href="#skills">Capabilities</a>
-        <a class="pill" href="#documents">Documents</a>
-        <a class="cta" href="#contact">Contact</a>
+        <a class="pill" href="#capabilities">Capabilities</a>
+        <a class="pill" href="#contact">Contact</a>
       </nav>
     </div>
   </div>
 
   <div class="wrap">
-    <!-- HERO -->
     <div class="hero">
+      <!-- LEFT HERO -->
       <div class="card">
         <div class="pad">
-          <h1>High-Precision Electromechanical Systems<br/>Built for Reliability and Scale</h1>
+          <h1>Download My Portfolio (PDF)<br/>and Review Key Case Studies</h1>
 
           <p class="subtitle">
-            Mechanical systems design professional with 20+ years delivering production-ready hardware from concept through stable mass production.
-            Strengths include system-level architecture, PCB-to-enclosure integration, precision mechanisms, tolerance stack-up control, grounding strategy, thermal management, and manufacturability.
+            Mechanical systems design professional with 20+ years delivering production-ready hardware across regulated medical devices and high-volume electronics.
+            <b style="color:rgba(233,236,246,.96);">If you do one thing here, open the PDF.</b>
           </p>
 
-          <div class="tagrow" role="list">
-            <span class="tag" role="listitem"><b>System</b> Architecture Ownership</span>
-            <span class="tag" role="listitem"><b>PCB</b> Integration & ECAD–MCAD</span>
-            <span class="tag" role="listitem"><b>ISO</b> 13485 / V&V</span>
-            <span class="tag" role="listitem"><b>DFM</b> / DFA / Tooling Release</span>
-            <span class="tag" role="listitem"><b>High-Volume</b> Production Reality</span>
-          </div>
-
-          <div class="quick">
-            <div class="mini">
-              <div class="k">Core Industries</div>
-              <div class="v">Medical Devices · Robotics Hardware · Advanced / Semiconductor Equipment</div>
+          <!-- PRIMARY CTA STRIP -->
+          <div class="downloadStrip" id="documents">
+            <div class="left">
+              <div class="title">📄 Portfolio PDF (Detailed Case Studies)</div>
+              <div class="hint">Includes visuals, architecture highlights, manufacturability notes, and measurable outcomes.</div>
             </div>
-            <div class="mini">
-              <div class="k">Focus Areas</div>
-              <div class="v">High-density packaging, structural stability, serviceability, reliability validation</div>
-            </div>
-            <div class="mini">
-              <div class="k">CAD</div>
-              <div class="v"><code>SolidWorks</code> · <code>PTC Creo (Pro/E)</code></div>
-            </div>
-            <div class="mini">
-              <div class="k">Location</div>
-              <div class="v">Toronto, ON (Canada) · Open to US roles</div>
+            <div class="ctaRow">
+              <!-- Put PDFs in repo root OR update links -->
+              <a class="btn primary" href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener">
+                🔍 Open PDF
+              </a>
+              <a class="btn secondary" href="./Andy_Lee_US_Application_Package_2026.pdf" download>
+                ⬇ Download
+              </a>
             </div>
           </div>
 
-          <div class="actions" id="documents">
-            <!-- Put PDFs in the repo root or edit these links -->
-            <a class="btn primary" href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener">
-              Open US Application Package (PDF)
-            </a>
-            <a class="btn" href="./Andy_Lee_Canada_Application_Package_Safe_2026.pdf" target="_blank" rel="noopener">
-              Open Canada-Safe Package (PDF)
-            </a>
-            <a class="btn" href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
+          <div class="tagrow" role="list" aria-label="Focus tags">
+            <span class="tag" role="listitem"><b>Electromechanical</b> system integration</span>
+            <span class="tag" role="listitem"><b>PCB</b> packaging & keepouts</span>
+            <span class="tag" role="listitem"><b>Precision</b> mechanisms</span>
+            <span class="tag" role="listitem"><b>DFM/DFA</b> + tooling release</span>
+            <span class="tag" role="listitem"><b>ISO 13485</b> design controls</span>
+          </div>
+
+          <!-- METRICS (replaces lots of text) -->
+          <div class="metrics" aria-label="Key outcomes">
+            <div class="metric">
+              <div class="big">1M+</div>
+              <div class="label">Units deployed across multiple high-volume product lines</div>
+            </div>
+            <div class="metric">
+              <div class="big">~30%</div>
+              <div class="label">Unit cost reduction via injection molding transition + DFM/DFA</div>
+            </div>
+            <div class="metric">
+              <div class="big">~20%</div>
+              <div class="label">Production downtime reduction through root-cause redesign</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">LinkedIn</a>
             <button class="btn" type="button" id="copyEmailBtn">Copy Email</button>
+            <a class="btn" href="#case-studies">Jump to Case Studies</a>
           </div>
 
-          <p class="subtitle" style="margin-top:14px; color:var(--muted2);">
-            If a PDF link shows 404, confirm the PDF is uploaded to the repo root and the filename matches exactly (including spaces/underscores).
+          <p class="subtitle" style="margin-top:12px; color:var(--muted2);">
+            Note: If the PDF link shows 404, confirm the file is uploaded to the repo root and the filename matches exactly.
           </p>
         </div>
       </div>
 
+      <!-- RIGHT HERO -->
       <div class="card">
         <div class="pad">
           <div class="sidehead">
@@ -462,56 +424,34 @@
             <span class="badge"><span class="dot"></span>Production-ready</span>
           </div>
 
-          <div class="timeline" id="highlights">
-            <div class="titem">
-              <div class="top">
-                <div class="role">20+ years</div>
-                <div class="when">Product development</div>
-              </div>
-              <div class="desc">Delivered hardware from concept through sustained mass production.</div>
+          <!-- K/V summary (short, no clutter) -->
+          <div class="kv">
+            <div class="row">
+              <div class="k">Core industries</div>
+              <div class="v">Medical Devices · Robotics Hardware · Advanced / Semiconductor Equipment</div>
             </div>
-
-            <div class="titem">
-              <div class="top">
-                <div class="role">ISO 13485</div>
-                <div class="when">Design controls</div>
-              </div>
-              <div class="desc">Medical device development under structured design control environments.</div>
+            <div class="row">
+              <div class="k">Strengths</div>
+              <div class="v">System architecture · PCB integration · DFM/DFA · reliability validation</div>
             </div>
-
-            <div class="titem">
-              <div class="top">
-                <div class="role">DFM/DFA</div>
-                <div class="when">+ tooling</div>
-              </div>
-              <div class="desc">Supplier collaboration, tooling release, mold validation, manufacturability reviews.</div>
+            <div class="row">
+              <div class="k">CAD</div>
+              <div class="v">SolidWorks · PTC Creo (Pro/E)</div>
             </div>
-
-            <div class="titem">
-              <div class="top">
-                <div class="role">1M+ units</div>
-                <div class="when">Deployed</div>
-              </div>
-              <div class="desc">High-volume consumer electronics programs delivered at scale.</div>
+            <div class="row">
+              <div class="k">Location</div>
+              <div class="v">Toronto, ON (Canada) · Open to US roles</div>
+            </div>
+            <div class="row">
+              <div class="k">Sharing notice</div>
+              <div class="v">High-level summaries only. No confidential drawings/specs are shared publicly.</div>
             </div>
           </div>
 
-          <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:14px;">
-            <div class="mini" style="margin:0;">
-              <div class="k">Download</div>
-              <div class="v">Open the PDF package for detailed case studies, visuals, and results.</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px;" class="item">
-            <div class="hdr">
-              <strong>NDA / Sharing Notice</strong>
-              <span class="meta">Public summary</span>
-            </div>
-            <ul style="margin-top:8px;">
-              <li>This site includes high-level summaries only. No confidential drawings, specifications, or internal documentation are shared publicly.</li>
-              <li>The PDF is provided for recruiting/interview purposes.</li>
-            </ul>
+          <div style="margin-top:12px; border-top:1px solid rgba(255,255,255,.08); padding-top:12px;">
+            <a class="btn primary" href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+              ⭐ Open Portfolio PDF Now
+            </a>
           </div>
         </div>
       </div>
@@ -521,131 +461,89 @@
     <section id="case-studies" class="card">
       <div class="section-title">
         <h2>Selected Case Studies</h2>
-        <p>System ownership · manufacturability · reliability</p>
+        <p>3 bullets each · no clutter</p>
       </div>
 
       <div class="list">
         <div class="item">
           <div class="hdr">
             <strong>Alentic Microscience — Portable CBC Diagnostic System</strong>
-            <span class="meta">2019–Present</span>
+            <span class="meta">ISO 13485 · electromechanical packaging</span>
           </div>
           <ul>
-            <li>Owned design and validation of lid hinge mechanism and flexible PCBA integration.</li>
-            <li>Ensured DFM readiness and design controls under ISO 13485.</li>
-            <li>Delivered measurable outcomes: cost-down, downtime reduction, rapid COVID-19 kit response.</li>
+            <li><b>System ownership:</b> lid hinge mechanism + flexible PCBA integration within constrained enclosure.</li>
+            <li><b>Manufacturing readiness:</b> DFM execution and design controls under ISO 13485.</li>
+            <li><b>Impact:</b> measurable cost-down and production uptime improvement through redesign.</li>
           </ul>
-          <div class="meta" style="margin-top:10px;">Full details, visuals, and results are documented in the portfolio PDF.</div>
         </div>
 
         <div class="item">
           <div class="hdr">
             <strong>Pantech — Smartphones & Mobile Devices</strong>
-            <span class="meta">15+ programs</span>
+            <span class="meta">15+ programs · 200k–1M+ units/model</span>
           </div>
           <ul>
-            <li>Led mechanical design across 15+ programs with tight packaging constraints.</li>
-            <li>Designed slider & flip hinge mechanisms; executed tolerance analysis and factory validation.</li>
-            <li>Delivered at scale: 200k–1M+ units/model; recognized with Best Engineer Award (2011).</li>
+            <li><b>Architecture:</b> tight packaging with PCB constraints, camera module packaging, and structural frames.</li>
+            <li><b>Mechanisms:</b> slider & flip hinge systems with tolerance stack-up and factory validation.</li>
+            <li><b>Scale:</b> high-volume production support; recognized with Best Engineer Award (2011).</li>
           </ul>
-          <div class="meta" style="margin-top:10px;">Full program scope and design ownership are included in the portfolio PDF.</div>
         </div>
       </div>
     </section>
 
     <!-- CAPABILITIES -->
-    <section id="skills" class="grid2">
-      <div class="card">
-        <div class="section-title">
-          <h2>Core Capabilities</h2>
-          <p>High-precision electromechanical systems</p>
-        </div>
-        <div class="list">
-          <div class="item">
-            <div class="hdr">
-              <strong>System Architecture & Integration</strong>
-              <span class="meta">electromechanical</span>
-            </div>
-            <ul>
-              <li>PCB-to-enclosure integration, connector strategy, mounting & service access</li>
-              <li>ECAD–MCAD coordination and interface alignment reviews</li>
-              <li>Grounding features, packaging constraints, and mechanical-electrical tradeoffs</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="hdr">
-              <strong>Mechanisms & Tolerance Control</strong>
-              <span class="meta">precision packaging</span>
-            </div>
-            <ul>
-              <li>Hinge/linkage/slider systems with compact packaging constraints</li>
-              <li>Tolerance stack-up, fit/clearance control, repeatable assembly</li>
-              <li>Reliability validation mindset: drop, shock, cyclic loading (as applicable)</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="hdr">
-              <strong>Manufacturability & Scale</strong>
-              <span class="meta">production-ready</span>
-            </div>
-            <ul>
-              <li>DFM/DFA, GD&T, tooling validation, supplier DFM feedback loops</li>
-              <li>NPI support, ramp-up issue resolution, yield improvement</li>
-              <li>Design transfer and sustained production support</li>
-            </ul>
-          </div>
-        </div>
+    <section id="capabilities" class="card">
+      <div class="section-title">
+        <h2>Capabilities</h2>
+        <p>what you can hire me for</p>
       </div>
 
-      <div class="card">
-        <div class="section-title">
-          <h2>Tools</h2>
-          <p>Design, documentation, collaboration</p>
+      <div class="list">
+        <div class="item">
+          <div class="hdr">
+            <strong>Electromechanical Integration</strong>
+            <span class="meta">PCB + enclosure</span>
+          </div>
+          <ul>
+            <li>PCB mounting strategy, connector fit validation, keepouts/zoning, service access.</li>
+            <li>ECAD–MCAD reviews with electrical teams to reduce integration risk early.</li>
+            <li>Grounding features, packaging constraints, and manufacturable interface design.</li>
+          </ul>
         </div>
-        <div class="list">
-          <div class="item">
-            <div class="hdr">
-              <strong>CAD</strong>
-              <span class="meta">SolidWorks · Creo</span>
-            </div>
-            <ul>
-              <li>Part design, assemblies, drawings, BOM management</li>
-              <li>Design review packages for manufacturing and suppliers</li>
-            </ul>
-          </div>
 
-          <div class="item">
-            <div class="hdr">
-              <strong>ECAD Collaboration</strong>
-              <span class="meta">Altium coordination</span>
-            </div>
-            <ul>
-              <li>PCB mounting strategy, connector fit validation, keepouts, zoning</li>
-              <li>ECAD–MCAD reviews with electrical teams to reduce integration risk</li>
-            </ul>
+        <div class="item">
+          <div class="hdr">
+            <strong>Precision Mechanisms + Tolerance Control</strong>
+            <span class="meta">repeatable assembly</span>
           </div>
+          <ul>
+            <li>Hinge/linkage/slider systems designed for compact assemblies.</li>
+            <li>Tolerance stack-up, fit/clearance control, structural stability under constraints.</li>
+            <li>Reliability validation mindset: drop/shock/cycle testing as applicable.</li>
+          </ul>
+        </div>
 
-          <div class="item">
-            <div class="hdr">
-              <strong>Notes on Titles</strong>
-              <span class="meta">Canada-safe</span>
-            </div>
-            <ul>
-              <li>This public site uses “Design Lead/Professional” phrasing while maintaining accurate scope and impact.</li>
-            </ul>
+        <div class="item">
+          <div class="hdr">
+            <strong>Manufacturability & Scale</strong>
+            <span class="meta">DFM/DFA</span>
           </div>
+          <ul>
+            <li>Tooling reviews, injection molding validation, supplier DFM feedback loops.</li>
+            <li>NPI support, ramp-up issue resolution, yield and uptime improvements.</li>
+            <li>Production-ready design tradeoffs: cost, risk, schedule, reliability.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="card" style="margin-top:14px;">
+    <section id="contact" class="card">
       <div class="section-title">
         <h2>Contact</h2>
-        <p>Recruiting & interviews</p>
+        <p>fast way to reach me</p>
       </div>
+
       <div class="list">
         <div class="item">
           <div class="hdr">
@@ -653,30 +551,30 @@
             <span class="meta"><button class="btn" type="button" id="copyEmailBtn2">Copy</button></span>
           </div>
           <ul>
-            <li><span class="muted">Primary:</span> <span id="emailText">a7898586@gmail.com</span></li>
-            <li><span class="muted">LinkedIn:</span> <a href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">linkedin.com/in/andy-kwangwon-lee</a></li>
+            <li><b>Email:</b> <span id="emailText">a7898586@gmail.com</span></li>
+            <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">linkedin.com/in/andy-kwangwon-lee</a></li>
           </ul>
         </div>
 
         <div class="item">
           <div class="hdr">
-            <strong>Downloads</strong>
-            <span class="meta">PDF packages</span>
+            <strong>PDF Links</strong>
+            <span class="meta">open / download</span>
           </div>
           <ul>
-            <li><a href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener">US Application Package (Cover Letter + Resume + Portfolio)</a></li>
-            <li><a href="./Andy_Lee_Canada_Application_Package_Safe_2026.pdf" target="_blank" rel="noopener">Canada-Safe Application Package (Cover Letter + Resume + Portfolio)</a></li>
+            <li><a href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener"><b>Open Portfolio PDF</b> (US package)</a></li>
+            <li><a href="./Andy_Lee_Canada_Application_Package_Safe_2026.pdf" target="_blank" rel="noopener">Open Canada-safe package</a></li>
           </ul>
         </div>
       </div>
     </section>
 
     <footer>
-      <div>© <span id="year"></span> Kwangwon (Andy) Lee · Built on GitHub Pages</div>
+      <div>© <span id="year"></span> Kwangwon (Andy) Lee · GitHub Pages</div>
       <div class="smalllinks">
         <a href="#top">Back to top</a>
-        <a href="#documents">Documents</a>
-        <a href="#case-studies">Case Studies</a>
+        <a href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener">Open PDF</a>
+        <a href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
   </div>
