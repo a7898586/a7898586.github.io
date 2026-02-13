@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="robots" content="index,follow" />
-  <meta name="description" content="Kwangwon (Andy) Lee — Mechanical System Design Portfolio (Electromechanical Integration, PCB-to-Enclosure, DFM/DFA, ISO 13485)." />
+  <meta name="description" content="Kwangwon (Andy) Lee — Mechanical System Design Portfolio (Electromechanical Systems, System Architecture, PCB Integration, DFM/DFA, Manufacturing Scale)." />
   <title>Kwangwon (Andy) Lee | Mechanical System Design Portfolio</title>
 
   <style>
@@ -250,35 +250,40 @@
       padding: 0 4px;
       flex-wrap:wrap;
     }
+
+    /* CTA emphasis (bigger + more obvious) */
     .btnPrimary{
       flex: 1 1 180px;
       display:inline-flex;
       justify-content:center;
       align-items:center;
       gap:10px;
-      padding:12px 14px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.16);
+      padding:14px 16px;          /* increased */
+      border-radius: 16px;         /* increased */
+      border:1px solid rgba(255,255,255,.18);
       background: linear-gradient(135deg, var(--btnPrimaryA), var(--btnPrimaryB));
       color: var(--btnText);
-      font-weight:900;
-      font-size:14px;
-      box-shadow: 0 14px 24px rgba(0,0,0,.25);
+      font-weight:950;
+      font-size:15px;              /* increased */
+      box-shadow: 0 18px 30px rgba(0,0,0,.28);
+      transform: translateZ(0);
     }
-    .btnPrimary:hover{ text-decoration:none; filter: brightness(1.02); }
+    .btnPrimary:hover{ text-decoration:none; filter: brightness(1.03); }
+    .btnPrimary:focus{ outline:2px solid rgba(154,217,255,.35); outline-offset:2px; }
+
     .btnSecondary{
       flex: 1 1 140px;
       display:inline-flex;
       justify-content:center;
       align-items:center;
       gap:10px;
-      padding:12px 14px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.16);
+      padding:14px 16px;          /* increased */
+      border-radius: 16px;         /* increased */
+      border:1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.06);
       color: rgba(238,242,255,.92);
-      font-weight:900;
-      font-size:14px;
+      font-weight:950;
+      font-size:15px;              /* increased */
       cursor:pointer;
     }
     .btnSecondary:hover{ text-decoration:none; border-color: rgba(154,217,255,.30); }
@@ -424,24 +429,28 @@
 
     <div class="hero">
       <div class="heroGrid">
+        <!-- LEFT -->
         <div>
           <h1>Kwangwon (Andy) Lee</h1>
 
+          <!-- Field-neutral headline -->
           <div class="headline">
-            Senior Mechanical Design Professional · Medical Devices · Electro-Mechanical Systems · DFM/DFA
+            Senior Mechanical Design Professional · Electro-Mechanical Systems · System Architecture · DFM/DFA
           </div>
 
+          <!-- Field-neutral, system-strong summary -->
           <div class="lead">
-            Senior mechanical design professional with 20+ years delivering production-ready <b>electromechanical systems</b> across medical devices and high-volume consumer electronics.
-            Extensive expertise in system-level mechanical architecture, <b>PCB-to-enclosure integration</b>, precision mechanisms, injection-molded enclosures, tolerance stack-up, and DFM/DFA within tightly constrained electronic assemblies.
-            Proven collaboration with electrical engineers on <b>PCB layout coordination</b>, component zoning/keep-outs, connector interface definition, grounding strategy, and <b>ECAD–MCAD alignment (Altium collaboration)</b> to ensure structural integrity, signal reliability, and manufacturable designs at scale.
+            Senior mechanical design professional with 20+ years delivering production-ready <b>electromechanical systems</b> from concept through stable mass production.
+            Strong ownership of system-level mechanical architecture, <b>PCB-to-enclosure integration</b>, precision mechanisms, injection-molded enclosures, tolerance stack-up, and DFM/DFA within tightly constrained electronic assemblies.
+            Proven collaboration with electrical engineers on <b>PCB layout coordination</b>, component zoning/keep-outs, connector interface definition, grounding strategy, and <b>ECAD–MCAD alignment (Altium collaboration)</b> to ensure reliable, manufacturable designs at scale.
+            Focused on building scalable hardware platforms that balance performance, reliability, cost, and manufacturability across diverse product environments.
           </div>
 
           <div class="metrics">
             <div class="metricCard">
               <div class="metricBig">1M+</div>
               <div class="metricTitle">Units Deployed</div>
-              <div class="metricDesc">Production-ready architectures used at scale across multiple product lines.</div>
+              <div class="metricDesc">Production-grade electromechanical architectures deployed at scale across global product lines.</div>
             </div>
 
             <div class="metricCard">
@@ -457,19 +466,22 @@
             </div>
           </div>
 
+          <!-- Skills: more system-level, still neutral -->
           <div class="skillChips" aria-label="skills">
-            <span class="skillChip">SolidWorks</span>
-            <span class="skillChip">Creo (Pro/E)</span>
+            <span class="skillChip">System Architecture</span>
+            <span class="skillChip">Electromechanical Integration</span>
             <span class="skillChip">ECAD–MCAD Reviews</span>
             <span class="skillChip">Altium Coordination</span>
-            <span class="skillChip">PCB Integration</span>
+            <span class="skillChip">Precision Mechanisms</span>
             <span class="skillChip">Injection Molding</span>
             <span class="skillChip">GD&amp;T / Stack-up</span>
-            <span class="skillChip">ISO 13485</span>
+            <span class="skillChip">DFM/DFA</span>
+            <span class="skillChip">Manufacturing Scale</span>
             <span class="skillChip">Design Transfer</span>
           </div>
         </div>
 
+        <!-- RIGHT -->
         <div class="side">
           <div class="sideHeader">
             <div>
@@ -480,7 +492,7 @@
 
           <div class="pillRow">
             <div class="pill"><b>20+</b> <small>years</small></div>
-            <div class="pill"><b>ISO 13485</b> <small>design controls</small></div>
+            <div class="pill"><b>System</b> <small>ownership</small></div>
             <div class="pill"><b>PCB</b> <small>integration</small></div>
             <div class="pill"><b>DFM/DFA</b> <small>+ tooling</small></div>
             <div class="pill"><b>1M+</b> <small>units</small></div>
@@ -518,14 +530,14 @@
         <div class="caseCard">
           <div class="caseTop">
             <span class="caseTag">Selected Case Study</span>
-            <span class="caseTag">Medical Device</span>
-            <span class="caseTag">ISO 13485</span>
+            <span class="caseTag">Precision System</span>
+            <span class="caseTag">Design Controls</span>
           </div>
           <div class="caseTitle">Alentic Microscience — Portable CBC Diagnostic System</div>
           <ul class="caseList">
-            <li><b>Owned</b> design and validation of lid <b>hinge mechanism</b> and flexible PCBA integration.</li>
-            <li><b>Coordinated</b> cross-functionally with electrical, software, optics, and quality teams for system integration and manufacturing readiness.</li>
-            <li><b>Delivered</b> measurable outcomes: ~30% cost reduction via molding transition and ~20% downtime reduction through corrective redesign.</li>
+            <li><b>Reduced unit cost by ~30%</b> through injection molding transition while owning hinge mechanism architecture and PCBA integration.</li>
+            <li><b>Improved production uptime by ~20%</b> by leading root-cause investigations, corrective actions, and reliability redesign.</li>
+            <li><b>Coordinated</b> cross-functionally across electrical, software, optics, and quality teams to reach manufacturing readiness.</li>
           </ul>
           <div class="caseFoot">Full details, visuals, and results are documented in the portfolio PDF.</div>
         </div>
