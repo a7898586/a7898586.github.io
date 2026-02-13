@@ -17,10 +17,9 @@
       --muted2:#95a1c4;
       --line:rgba(255,255,255,.10);
       --line2:rgba(255,255,255,.14);
-      --accent:#7dd3fc; /* light cyan */
-      --accent2:#a78bfa; /* violet */
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
       --ok:#34d399;
-      --warn:#fbbf24;
       --shadow: 0 18px 45px rgba(0,0,0,.35);
       --radius:18px;
       --radius2:24px;
@@ -72,15 +71,9 @@
       border:1px solid rgba(255,255,255,.14);
       box-shadow: 0 10px 20px rgba(0,0,0,.25);
     }
-    .brand .name{
-      line-height:1.15;
-    }
-    .brand .name strong{
-      display:block; font-size:14px; letter-spacing:.2px;
-    }
-    .brand .name span{
-      display:block; font-size:12px; color:var(--muted2);
-    }
+    .brand .name{ line-height:1.15; }
+    .brand .name strong{ display:block; font-size:14px; letter-spacing:.2px; }
+    .brand .name span{ display:block; font-size:12px; color:var(--muted2); }
 
     nav{
       display:flex; flex-wrap:wrap;
@@ -144,7 +137,7 @@
       color:var(--muted);
       font-size:14px;
       line-height:1.6;
-      max-width: 68ch;
+      max-width: 70ch;
     }
     .tagrow{
       display:flex; flex-wrap:wrap;
@@ -192,6 +185,7 @@
       background: rgba(255,255,255,.04);
       font-size:13px;
       color:var(--text);
+      cursor:pointer;
     }
     .btn:hover{ text-decoration:none; border-color: rgba(125,211,252,.38); }
     .btn.primary{
@@ -226,7 +220,7 @@
       padding:14px;
     }
     .titem .top{
-      display:flex; flex-wrap:wrap;
+      display:flex; flex-wrap:wrap hookup
       justify-content:space-between;
       gap:8px;
       align-items:baseline;
@@ -382,7 +376,7 @@
 </head>
 
 <body>
-  <div class="topbar">
+  <div class="topbar" id="top">
     <div class="inner">
       <div class="brand">
         <div class="mark" aria-hidden="true"></div>
@@ -410,7 +404,7 @@
           <h1>High-Precision Electromechanical Systems<br/>Built for Reliability and Scale</h1>
 
           <p class="subtitle">
-            Mechanical systems design leader with 20+ years delivering production-ready hardware across regulated medical devices and high-volume electronic products.
+            Mechanical systems design professional with 20+ years delivering production-ready hardware from concept through stable mass production.
             Strengths include system-level architecture, PCB-to-enclosure integration, precision mechanisms, tolerance stack-up control, grounding strategy, thermal management, and manufacturability.
           </p>
 
@@ -442,23 +436,21 @@
           </div>
 
           <div class="actions" id="documents">
-            <!-- Replace hrefs with your actual file paths in the repo -->
+            <!-- Put PDFs in the repo root or edit these links -->
             <a class="btn primary" href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener">
-              Download US Application Package (PDF)
+              Open US Application Package (PDF)
             </a>
             <a class="btn" href="./Andy_Lee_Canada_Application_Package_Safe_2026.pdf" target="_blank" rel="noopener">
-              Download Canada-Safe Package (PDF)
+              Open Canada-Safe Package (PDF)
             </a>
-            <button class="btn" type="button" id="copyEmailBtn" aria-label="Copy email">
-              Copy Email
-            </button>
             <a class="btn" href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">
               LinkedIn
             </a>
+            <button class="btn" type="button" id="copyEmailBtn">Copy Email</button>
           </div>
 
           <p class="subtitle" style="margin-top:14px; color:var(--muted2);">
-            Tip: Place your PDFs in the same GitHub Pages repository root with the exact filenames used above (or edit the links).
+            If a PDF link shows 404, confirm the PDF is uploaded to the repo root and the filename matches exactly (including spaces/underscores).
           </p>
         </div>
       </div>
@@ -466,47 +458,60 @@
       <div class="card">
         <div class="pad">
           <div class="sidehead">
-            <h2>At a Glance</h2>
-            <span class="badge"><span class="dot"></span>Production-ready mindset</span>
+            <h2>Quick Profile</h2>
+            <span class="badge"><span class="dot"></span>Production-ready</span>
           </div>
 
           <div class="timeline" id="highlights">
             <div class="titem">
               <div class="top">
-                <div class="role">ISO 13485 diagnostic instruments</div>
-                <div class="when">Alentic · 2019–Present</div>
+                <div class="role">20+ years</div>
+                <div class="when">Product development</div>
               </div>
-              <div class="desc">
-                System architecture ownership from concept to manufacturing readiness, including PCB mounting strategy, grounding features, precision mechanisms, and reliability validation.
-              </div>
+              <div class="desc">Delivered hardware from concept through sustained mass production.</div>
             </div>
 
             <div class="titem">
               <div class="top">
-                <div class="role">High-volume consumer electronics</div>
-                <div class="when">Pantech · 2004–2015</div>
+                <div class="role">ISO 13485</div>
+                <div class="when">Design controls</div>
               </div>
-              <div class="desc">
-                15+ product programs, 200k–1M+ units/model. Compact packaging, tolerance stack-up, manufacturing ramp support, and yield issue resolution.
-              </div>
+              <div class="desc">Medical device development under structured design control environments.</div>
             </div>
 
             <div class="titem">
               <div class="top">
-                <div class="role">Electromechanical consulting</div>
-                <div class="when">Winnerswon · 2015–2018</div>
+                <div class="role">DFM/DFA</div>
+                <div class="when">+ tooling</div>
               </div>
-              <div class="desc">
-                End-to-end product design services for startups and IoT hardware: prototyping, tooling handoff, and scalable manufacturing guidance.
+              <div class="desc">Supplier collaboration, tooling release, mold validation, manufacturability reviews.</div>
+            </div>
+
+            <div class="titem">
+              <div class="top">
+                <div class="role">1M+ units</div>
+                <div class="when">Deployed</div>
               </div>
+              <div class="desc">High-volume consumer electronics programs delivered at scale.</div>
             </div>
           </div>
 
           <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:14px;">
             <div class="mini" style="margin:0;">
-              <div class="k">Licensure</div>
-              <div class="v">Professional Engineer (P.Eng.) — In Progress (anticipated completion: April)</div>
+              <div class="k">Download</div>
+              <div class="v">Open the PDF package for detailed case studies, visuals, and results.</div>
             </div>
+          </div>
+
+          <div style="margin-top:12px;" class="item">
+            <div class="hdr">
+              <strong>NDA / Sharing Notice</strong>
+              <span class="meta">Public summary</span>
+            </div>
+            <ul style="margin-top:8px;">
+              <li>This site includes high-level summaries only. No confidential drawings, specifications, or internal documentation are shared publicly.</li>
+              <li>The PDF is provided for recruiting/interview purposes.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -522,38 +527,28 @@
       <div class="list">
         <div class="item">
           <div class="hdr">
-            <strong>Alentic Microscience — ISO 13485 Diagnostic Instruments</strong>
-            <span class="meta">Halifax, Canada · 2019–Present</span>
+            <strong>Alentic Microscience — Portable CBC Diagnostic System</strong>
+            <span class="meta">2019–Present</span>
           </div>
           <ul>
-            <li>Owned system-level mechanical architecture including PCB-to-enclosure integration, internal layouts, precision mechanisms, and structural frames.</li>
-            <li>Coordinated cross-functional development with electrical, optics, firmware, quality, and manufacturing teams to deliver robust, manufacturable hardware.</li>
-            <li>Led root-cause investigations and corrective actions to improve uptime and reliability; drove supplier DFM/DFA, tooling strategy, and mold release.</li>
+            <li>Owned design and validation of lid hinge mechanism and flexible PCBA integration.</li>
+            <li>Ensured DFM readiness and design controls under ISO 13485.</li>
+            <li>Delivered measurable outcomes: cost-down, downtime reduction, rapid COVID-19 kit response.</li>
           </ul>
+          <div class="meta" style="margin-top:10px;">Full details, visuals, and results are documented in the portfolio PDF.</div>
         </div>
 
         <div class="item">
           <div class="hdr">
-            <strong>Pantech — High-Volume Mobile Device Platforms</strong>
-            <span class="meta">Seoul, South Korea · 2004–2015</span>
+            <strong>Pantech — Smartphones & Mobile Devices</strong>
+            <span class="meta">15+ programs</span>
           </div>
           <ul>
-            <li>Led mechanical architecture for 15+ programs, integrating PCB layout constraints, antenna coordination, precision mechanisms, and compact packaging.</li>
-            <li>Executed tolerance stack-up, drop/reliability validation, and on-site manufacturing support to resolve tooling and yield issues during ramp-up.</li>
-            <li>Delivered designs at scale (200k–1M+ units per model) under aggressive cost, schedule, and quality targets.</li>
+            <li>Led mechanical design across 15+ programs with tight packaging constraints.</li>
+            <li>Designed slider & flip hinge mechanisms; executed tolerance analysis and factory validation.</li>
+            <li>Delivered at scale: 200k–1M+ units/model; recognized with Best Engineer Award (2011).</li>
           </ul>
-        </div>
-
-        <div class="item">
-          <div class="hdr">
-            <strong>Winnerswon — Product Design Consulting (IoT & Consumer Hardware)</strong>
-            <span class="meta">Seoul, South Korea · 2015–2018</span>
-          </div>
-          <ul>
-            <li>Provided end-to-end mechanical architecture and PCB-integrated enclosure design from concept through production-ready CAD delivery.</li>
-            <li>Built functional prototypes for patent filings, investor demos, and early market validation; directed tooling development and manufacturing handoff.</li>
-            <li>Advised clients on material selection, cost optimization, manufacturing risk, and production scaling strategy.</li>
-          </ul>
+          <div class="meta" style="margin-top:10px;">Full program scope and design ownership are included in the portfolio PDF.</div>
         </div>
       </div>
     </section>
@@ -562,30 +557,30 @@
     <section id="skills" class="grid2">
       <div class="card">
         <div class="section-title">
-          <h2>Core Technical Capabilities</h2>
-          <p>What I do best</p>
+          <h2>Core Capabilities</h2>
+          <p>High-precision electromechanical systems</p>
         </div>
         <div class="list">
           <div class="item">
             <div class="hdr">
-              <strong>Electromechanical Integration</strong>
-              <span class="meta">System-level</span>
+              <strong>System Architecture & Integration</strong>
+              <span class="meta">electromechanical</span>
             </div>
             <ul>
               <li>PCB-to-enclosure integration, connector strategy, mounting & service access</li>
-              <li>Grounding features, packaging constraints, ECAD–MCAD alignment reviews</li>
-              <li>Cable routing in constrained assemblies; mechanical-electrical interface control</li>
+              <li>ECAD–MCAD coordination and interface alignment reviews</li>
+              <li>Grounding features, packaging constraints, and mechanical-electrical tradeoffs</li>
             </ul>
           </div>
 
           <div class="item">
             <div class="hdr">
-              <strong>Precision Mechanisms</strong>
-              <span class="meta">Motion + tolerance</span>
+              <strong>Mechanisms & Tolerance Control</strong>
+              <span class="meta">precision packaging</span>
             </div>
             <ul>
-              <li>Hinge/linkage/slider systems; stiffness and alignment under tight packaging</li>
-              <li>Tolerance stack-up analysis; fit/clearance control for repeatable assembly</li>
+              <li>Hinge/linkage/slider systems with compact packaging constraints</li>
+              <li>Tolerance stack-up, fit/clearance control, repeatable assembly</li>
               <li>Reliability validation mindset: drop, shock, cyclic loading (as applicable)</li>
             </ul>
           </div>
@@ -593,12 +588,12 @@
           <div class="item">
             <div class="hdr">
               <strong>Manufacturability & Scale</strong>
-              <span class="meta">Production-ready</span>
+              <span class="meta">production-ready</span>
             </div>
             <ul>
-              <li>DFM/DFA, GD&T, tooling validation, mold release, supplier collaboration</li>
-              <li>NPI support, ramp-up issue resolution, yield improvement and corrective actions</li>
-              <li>High-volume production experience and practical design tradeoff decisions</li>
+              <li>DFM/DFA, GD&T, tooling validation, supplier DFM feedback loops</li>
+              <li>NPI support, ramp-up issue resolution, yield improvement</li>
+              <li>Design transfer and sustained production support</li>
             </ul>
           </div>
         </div>
@@ -606,50 +601,39 @@
 
       <div class="card">
         <div class="section-title">
-          <h2>Tools & Collaboration</h2>
-          <p>Fast iteration, clean handoff</p>
+          <h2>Tools</h2>
+          <p>Design, documentation, collaboration</p>
         </div>
         <div class="list">
           <div class="item">
             <div class="hdr">
-              <strong>CAD / Mechanical</strong>
+              <strong>CAD</strong>
               <span class="meta">SolidWorks · Creo</span>
             </div>
             <ul>
-              <li>Mechanical architecture, detailed part design, drawings, BOM management</li>
-              <li>Design reviews with electrical teams for PCB constraints and interface alignment</li>
+              <li>Part design, assemblies, drawings, BOM management</li>
+              <li>Design review packages for manufacturing and suppliers</li>
             </ul>
           </div>
 
           <div class="item">
             <div class="hdr">
-              <strong>Prototyping & Documentation</strong>
-              <span class="meta">Build → learn → refine</span>
+              <strong>ECAD Collaboration</strong>
+              <span class="meta">Altium coordination</span>
             </div>
             <ul>
-              <li>3D printing, prototype builds, engineering change documentation</li>
-              <li>Structured development environments including ISO 13485 design controls</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="hdr">
-              <strong>Manufacturing Support</strong>
-              <span class="meta">Supplier-facing</span>
-            </div>
-            <ul>
-              <li>Tolerance risk mitigation, tooling reviews, supplier DFM feedback loops</li>
-              <li>On-site / remote support to close issues during pilot builds and ramp-up</li>
+              <li>PCB mounting strategy, connector fit validation, keepouts, zoning</li>
+              <li>ECAD–MCAD reviews with electrical teams to reduce integration risk</li>
             </ul>
           </div>
 
           <div class="item">
             <div class="hdr">
               <strong>Notes on Titles</strong>
-              <span class="meta">Public portfolio</span>
+              <span class="meta">Canada-safe</span>
             </div>
             <ul>
-              <li>This site uses “Design Lead/Professional” phrasing for Canada-safe public posting while maintaining accurate role scope and impact.</li>
+              <li>This public site uses “Design Lead/Professional” phrasing while maintaining accurate scope and impact.</li>
             </ul>
           </div>
         </div>
@@ -660,7 +644,7 @@
     <section id="contact" class="card" style="margin-top:14px;">
       <div class="section-title">
         <h2>Contact</h2>
-        <p>Let’s talk systems</p>
+        <p>Recruiting & interviews</p>
       </div>
       <div class="list">
         <div class="item">
@@ -690,7 +674,7 @@
     <footer>
       <div>© <span id="year"></span> Kwangwon (Andy) Lee · Built on GitHub Pages</div>
       <div class="smalllinks">
-        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to top</a>
+        <a href="#top">Back to top</a>
         <a href="#documents">Documents</a>
         <a href="#case-studies">Case Studies</a>
       </div>
@@ -705,8 +689,7 @@
 
   <script>
     (function(){
-      const yearEl = document.getElementById('year');
-      yearEl.textContent = new Date().getFullYear();
+      document.getElementById('year').textContent = new Date().getFullYear();
 
       const email = "a7898586@gmail.com";
       const toast = document.getElementById('toast');
@@ -724,7 +707,6 @@
           await navigator.clipboard.writeText(txt);
           showToast("Email copied: " + txt);
         }catch(e){
-          // Fallback
           const ta = document.createElement('textarea');
           ta.value = txt;
           ta.style.position = 'fixed';
@@ -737,23 +719,8 @@
         }
       }
 
-      const btn1 = document.getElementById('copyEmailBtn');
-      const btn2 = document.getElementById('copyEmailBtn2');
-      btn1?.addEventListener('click', () => copyText(email));
-      btn2?.addEventListener('click', () => copyText(email));
-
-      // Smooth anchor behavior (nice on GitHub pages)
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', (e) => {
-          const href = a.getAttribute('href');
-          if(!href || href === '#') return;
-          const el = document.querySelector(href);
-          if(el){
-            e.preventDefault();
-            el.scrollIntoView({behavior:'smooth', block:'start'});
-          }
-        });
-      });
+      document.getElementById('copyEmailBtn')?.addEventListener('click', () => copyText(email));
+      document.getElementById('copyEmailBtn2')?.addEventListener('click', () => copyText(email));
     })();
   </script>
 </body>
