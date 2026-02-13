@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="robots" content="index,follow" />
-  <meta name="description" content="Kwangwon (Andy) Lee — Mechanical Systems Design Professional focused on production-ready electromechanical systems, PCB integration, precision mechanisms, and scalable manufacturing." />
-  <title>Kwangwon (Andy) Lee | Portfolio</title>
+  <meta name="description" content="Kwangwon (Andy) Lee — Mechanical System Design Portfolio (Electromechanical Integration, PCB-to-Enclosure, DFM/DFA, ISO 13485)." />
+  <title>Kwangwon (Andy) Lee | Mechanical System Design Portfolio</title>
 
   <style>
     :root{
@@ -20,12 +20,16 @@
       --shadow: 0 18px 60px rgba(0,0,0,.45);
       --radius:22px;
       --radius2:26px;
+
       --accent:#9ad9ff;
       --accent2:#b8a7ff;
-      --btn:#9fb6ff;
+
       --btnText:#0c1224;
+      --btnPrimaryA: rgba(159,182,255,.95);
+      --btnPrimaryB: rgba(184,167,255,.85);
+
       --max:1180px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
@@ -46,9 +50,9 @@
     a{ color:inherit; text-decoration:none; }
     a:hover{ text-decoration:underline; text-underline-offset:3px; }
 
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 18px 18px 60px; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 18px 18px 44px; }
 
-    /* Top mini header */
+    /* Top bar */
     .topRow{
       display:flex;
       align-items:center;
@@ -82,6 +86,7 @@
       border-radius:999px;
       font-size:13px;
       backdrop-filter: blur(10px);
+      cursor:pointer;
     }
     .tinyBtn:hover{ border-color: rgba(154,217,255,.30); text-decoration:none; color:var(--text); }
 
@@ -89,8 +94,7 @@
     .hero{
       border:1px solid var(--stroke);
       border-radius: var(--radius2);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
       box-shadow: var(--shadow);
       overflow:hidden;
       padding: 26px;
@@ -129,23 +133,9 @@
       color: var(--muted);
       font-size:15px;
       line-height:1.75;
-      max-width: 72ch;
+      max-width: 74ch;
     }
-
-    .kickers{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:16px;
-    }
-    .chip{
-      display:inline-flex; align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-size:13px;
-    }
+    .lead b{ color: rgba(238,242,255,.95); }
 
     .metrics{
       margin-top:18px;
@@ -194,7 +184,7 @@
       font-size:13px;
     }
 
-    /* Right card */
+    /* Right side block */
     .side{
       border:1px solid var(--stroke);
       border-radius: var(--radius);
@@ -269,9 +259,9 @@
       padding:12px 14px;
       border-radius: 14px;
       border:1px solid rgba(255,255,255,.16);
-      background: linear-gradient(135deg, rgba(159,182,255,.95), rgba(184,167,255,.85));
+      background: linear-gradient(135deg, var(--btnPrimaryA), var(--btnPrimaryB));
       color: var(--btnText);
-      font-weight:800;
+      font-weight:900;
       font-size:14px;
       box-shadow: 0 14px 24px rgba(0,0,0,.25);
     }
@@ -287,8 +277,9 @@
       border:1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
       color: rgba(238,242,255,.92);
-      font-weight:700;
+      font-weight:900;
       font-size:14px;
+      cursor:pointer;
     }
     .btnSecondary:hover{ text-decoration:none; border-color: rgba(154,217,255,.30); }
 
@@ -301,7 +292,7 @@
     }
     .boxTitle{
       font-size:13px;
-      font-weight:800;
+      font-weight:900;
       margin-bottom:6px;
       color: rgba(238,242,255,.92);
     }
@@ -311,7 +302,7 @@
       line-height:1.55;
     }
 
-    /* Lower section */
+    /* Lower case study cards */
     .lowerGrid{
       margin-top:18px;
       display:grid;
@@ -345,7 +336,7 @@
     }
     .caseTitle{
       font-size:18px;
-      font-weight:900;
+      font-weight:950;
       margin: 8px 0 10px;
       letter-spacing:-.2px;
     }
@@ -420,7 +411,6 @@
 
 <body>
   <div class="wrap">
-
     <!-- top -->
     <div class="topRow">
       <div class="topLeft">
@@ -441,32 +431,32 @@
           <h1>Kwangwon (Andy) Lee</h1>
 
           <div class="headline">
-            Mechanical Systems Design Professional · Medical Devices · Electromechanical Systems · DFM/DFA
+            Senior Mechanical Design Professional · Medical Devices · Electro-Mechanical Systems · DFM/DFA
           </div>
 
           <div class="lead">
-            Mechanical systems design professional with 20+ years of experience delivering production-ready electromechanical products from concept through stable mass production.
-            Strong ownership of system-level mechanical architecture, <b>PCB-to-enclosure integration</b>, precision mechanisms, injection-molded enclosures, tolerance stack-up,
-            and cross-functional execution across <b>electrical (PCB layout coordination / Altium collaboration)</b>, manufacturing, and quality teams.
+            Senior mechanical design professional with 20+ years delivering production-ready <b>electromechanical systems</b> across medical devices and high-volume consumer electronics.
+            Extensive expertise in system-level mechanical architecture, <b>PCB-to-enclosure integration</b>, precision mechanisms, injection-molded enclosures, tolerance stack-up, and DFM/DFA within tightly constrained electronic assemblies.
+            Proven collaboration with electrical engineers on <b>PCB layout coordination</b>, component zoning/keep-outs, connector interface definition, grounding strategy, and <b>ECAD–MCAD alignment (Altium collaboration)</b> to ensure structural integrity, signal reliability, and manufacturable designs at scale.
           </div>
 
           <div class="metrics">
             <div class="metricCard">
               <div class="metricBig">1M+</div>
               <div class="metricTitle">Units Deployed</div>
-              <div class="metricDesc">Production-ready architectures delivered at scale across multiple product lines.</div>
+              <div class="metricDesc">Production-ready architectures used at scale across multiple product lines.</div>
             </div>
 
             <div class="metricCard">
               <div class="metricBig">30%</div>
               <div class="metricTitle">Cost Reduction</div>
-              <div class="metricDesc">Manufacturing cost reduction through DFM/DFA and molding transitions.</div>
+              <div class="metricDesc">Cost-down through DFM/DFA, tooling optimization, and molding transitions.</div>
             </div>
 
             <div class="metricCard">
               <div class="metricBig">20%</div>
               <div class="metricTitle">Downtime Reduction</div>
-              <div class="metricDesc">Reliability improvements through root-cause redesign and manufacturing feedback.</div>
+              <div class="metricDesc">Reliability improvements via root-cause redesign and factory feedback loops.</div>
             </div>
           </div>
 
@@ -474,6 +464,8 @@
             <span class="skillChip">SolidWorks</span>
             <span class="skillChip">Creo (Pro/E)</span>
             <span class="skillChip">ECAD–MCAD Reviews</span>
+            <span class="skillChip">Altium Coordination</span>
+            <span class="skillChip">PCB Integration</span>
             <span class="skillChip">Injection Molding</span>
             <span class="skillChip">GD&amp;T / Stack-up</span>
             <span class="skillChip">ISO 13485</span>
@@ -502,11 +494,10 @@
             Download the full PDF for detailed case studies, visuals, and outcomes.
           </div>
 
-          <!-- IMPORTANT: One portfolio only -->
-          <!-- Rename your PDF in the repo root to "Portfolio.pdf" (recommended) -->
+          <!-- FILE NAME updated per user -->
           <div class="sideCtas">
-            <a class="btnPrimary" href="./Portfolio.pdf" target="_blank" rel="noopener">🔎 Open PDF</a>
-            <a class="btnSecondary" href="./Portfolio.pdf" download>⬇ Download</a>
+            <a class="btnPrimary" href="./Andy_Lee Mechanical_Portfolio.pdf" target="_blank" rel="noopener">🔎 Open PDF</a>
+            <a class="btnSecondary" href="./Andy_Lee Mechanical_Portfolio.pdf" download>⬇ Download</a>
           </div>
 
           <div class="box">
@@ -521,13 +512,12 @@
             <div class="boxTitle">Quick Tip</div>
             <div class="boxText">
               If the PDF link shows 404, confirm the PDF is uploaded to the repo root and the filename matches exactly
-              (including spaces/underscores). Best practice: rename it to <span style="font-family:var(--mono);">Portfolio.pdf</span>.
+              (including spaces/underscores). Current filename: <span style="font-family:var(--mono);">Andy_Lee Mechanical_Portfolio.pdf</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- lower -->
       <div class="lowerGrid">
         <div class="caseCard">
           <div class="caseTop">
@@ -538,8 +528,8 @@
           <div class="caseTitle">Alentic Microscience — Portable CBC Diagnostic System</div>
           <ul class="caseList">
             <li><b>Owned</b> design and validation of lid <b>hinge mechanism</b> and flexible PCBA integration.</li>
-            <li><b>Coordinated</b> with electrical and optics teams on PCB layout zoning, connector interfaces, and assembly constraints.</li>
-            <li><b>Delivered</b> measurable outcomes: cost-down, downtime reduction, and rapid COVID-19 kit response.</li>
+            <li><b>Coordinated</b> cross-functionally with electrical, software, optics, and quality teams for system integration and manufacturing readiness.</li>
+            <li><b>Delivered</b> measurable outcomes: ~30% cost reduction via molding transition and ~20% downtime reduction through corrective redesign.</li>
           </ul>
           <div class="caseFoot">Full details, visuals, and results are documented in the portfolio PDF.</div>
         </div>
@@ -552,8 +542,8 @@
           </div>
           <div class="caseTitle">Pantech — Smartphones &amp; Mobile Devices</div>
           <ul class="caseList">
-            <li><b>Led</b> mechanical design across <b>15+ programs</b> with tight packaging constraints.</li>
-            <li><b>Designed</b> <b>slider &amp; flip hinge mechanisms</b>; executed tolerance analysis and factory validation.</li>
+            <li><b>Led</b> mechanical design across <b>15+ programs</b> with tight packaging constraints and production ramp support.</li>
+            <li><b>Designed</b> slider &amp; flip hinge mechanisms; executed tolerance stack-up, reliability validation, and tooling issue resolution.</li>
             <li><b>Delivered</b> at scale: <b>200k–1M+</b> units/model; recognized with Best Engineer Award (2011).</li>
           </ul>
           <div class="caseFoot">Full program scope and design ownership are included in the portfolio PDF.</div>
@@ -565,13 +555,12 @@
           Toronto, ON · <span id="emailText">a7898586@gmail.com</span> · <span id="phoneText">+1 226-789-8586</span>
         </div>
         <div>
-          <a href="./Portfolio.pdf" target="_blank" rel="noopener">Portfolio PDF</a>
+          <a href="./Andy_Lee Mechanical_Portfolio.pdf" target="_blank" rel="noopener">Portfolio PDF</a>
           &nbsp;&nbsp;·&nbsp;&nbsp;
           <a href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </div>
-
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite">
