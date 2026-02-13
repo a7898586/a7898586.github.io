@@ -10,12 +10,11 @@
   <style>
     :root{
       --bg:#0b1020;
-      --panel:#0f1630;
       --text:#e9ecf6;
       --muted:#b7bfd6;
       --muted2:#95a1c4;
       --line:rgba(255,255,255,.10);
-      --line2:rgba(255,255,255,.14);
+      --line2:rgba(255,255,255,.16);
       --accent:#7dd3fc;
       --accent2:#a78bfa;
       --ok:#34d399;
@@ -59,7 +58,7 @@
       display:flex; align-items:center; justify-content:space-between;
       gap:12px;
     }
-    .brand{ display:flex; align-items:center; gap:10px; }
+    .brand{ display:flex; align-items:center; gap:10px; min-width: 250px; }
     .mark{
       width:34px; height:34px; border-radius:12px;
       background:
@@ -99,7 +98,8 @@
     }
     @media (max-width: 940px){
       .hero{ grid-template-columns:1fr; }
-      nav{ display:none; } /* keep it clean on mobile */
+      nav{ display:none; }
+      .brand{ min-width: auto; }
     }
 
     .card{
@@ -114,11 +114,11 @@
     h1{ margin:0; font-size:34px; letter-spacing:-.5px; line-height:1.12; }
     .subtitle{ margin-top:10px; color:var(--muted); font-size:14px; line-height:1.6; max-width: 70ch; }
 
-    /* BIG DOWNLOAD STRIP (Primary CTA) */
+    /* BIG DOWNLOAD STRIP */
     .downloadStrip{
       margin-top:16px;
       border-radius: 18px;
-      border:1px solid rgba(125,211,252,.35);
+      border:1px solid rgba(125,211,252,.42);
       background:
         radial-gradient(700px 220px at 20% 0%, rgba(125,211,252,.22), transparent 55%),
         radial-gradient(700px 220px at 80% 100%, rgba(167,139,250,.18), transparent 55%),
@@ -136,13 +136,13 @@
     }
     .downloadStrip .title{
       font-size:14px;
-      font-weight:700;
+      font-weight:800;
       letter-spacing:.2px;
     }
     .downloadStrip .hint{
       font-size:12px;
-      color:rgba(233,236,246,.85);
-      opacity:.92;
+      color:rgba(233,236,246,.88);
+      opacity:.95;
       line-height:1.35;
     }
     .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
@@ -162,20 +162,25 @@
     .btn:hover{ text-decoration:none; border-color: rgba(125,211,252,.38); }
 
     .btn.primary{
-      border-color: rgba(125,211,252,.55);
-      background: linear-gradient(135deg, rgba(125,211,252,.28), rgba(167,139,250,.20));
-      font-weight:700;
+      border-color: rgba(125,211,252,.60);
+      background: linear-gradient(135deg, rgba(125,211,252,.30), rgba(167,139,250,.22));
+      font-weight:800;
       padding:13px 16px;
       box-shadow: 0 12px 22px rgba(0,0,0,.20);
       transform: translateY(0);
     }
     .btn.primary:hover{
-      border-color: rgba(167,139,250,.65);
+      border-color: rgba(167,139,250,.70);
       transform: translateY(-1px);
     }
     .btn.secondary{
-      border-color: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.20);
       background: rgba(255,255,255,.03);
+    }
+    .btn.ghost{
+      border-color: rgba(255,255,255,.12);
+      background: rgba(0,0,0,.10);
+      color: rgba(233,236,246,.92);
     }
 
     /* Reduced text density */
@@ -187,7 +192,7 @@
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
     }
-    .tag b{ color:var(--accent); font-weight:650; }
+    .tag b{ color:var(--accent); font-weight:700; }
 
     .metrics{
       margin-top:14px;
@@ -204,9 +209,8 @@
     }
     .metric .big{
       font-size:22px;
-      font-weight:800;
+      font-weight:900;
       letter-spacing:.2px;
-      color: rgba(233,236,246,.98);
     }
     .metric .label{
       margin-top:6px;
@@ -356,39 +360,35 @@
       <!-- LEFT HERO -->
       <div class="card">
         <div class="pad">
-          <h1>Download My Portfolio (PDF)<br/>and Review Key Case Studies</h1>
+          <h1>Mechanical System Design Portfolio</h1>
 
           <p class="subtitle">
-            Mechanical systems design professional with 20+ years delivering production-ready hardware across regulated medical devices and high-volume electronics.
-            <b style="color:rgba(233,236,246,.96);">If you do one thing here, open the PDF.</b>
+            Mechanical systems design lead with 20+ years delivering production-ready electromechanical hardware
+            across regulated medical devices and high-volume electronics.
+            <b style="color:rgba(233,236,246,.96);">Open the portfolio PDF for visuals and detailed case studies.</b>
           </p>
 
-          <!-- PRIMARY CTA STRIP -->
+          <!-- ONE PORTFOLIO ONLY (US/Canada unified) -->
           <div class="downloadStrip" id="documents">
             <div class="left">
               <div class="title">📄 Portfolio PDF (Detailed Case Studies)</div>
-              <div class="hint">Includes visuals, architecture highlights, manufacturability notes, and measurable outcomes.</div>
+              <div class="hint">High-level public summary here · PDF includes visuals, scope, and results.</div>
             </div>
             <div class="ctaRow">
-              <!-- Put PDFs in repo root OR update links -->
-              <a class="btn primary" href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener">
-                🔍 Open PDF
-              </a>
-              <a class="btn secondary" href="./Andy_Lee_US_Application_Package_2026.pdf" download>
-                ⬇ Download
-              </a>
+              <!-- IMPORTANT: set this to YOUR ONE PDF filename in repo root -->
+              <a class="btn primary" href="./Portfolio.pdf" target="_blank" rel="noopener">🔍 Open PDF</a>
+              <a class="btn secondary" href="./Portfolio.pdf" download>⬇ Download</a>
             </div>
           </div>
 
           <div class="tagrow" role="list" aria-label="Focus tags">
-            <span class="tag" role="listitem"><b>Electromechanical</b> system integration</span>
-            <span class="tag" role="listitem"><b>PCB</b> packaging & keepouts</span>
+            <span class="tag" role="listitem"><b>Electromechanical</b> integration</span>
+            <span class="tag" role="listitem"><b>PCB</b> packaging</span>
             <span class="tag" role="listitem"><b>Precision</b> mechanisms</span>
-            <span class="tag" role="listitem"><b>DFM/DFA</b> + tooling release</span>
+            <span class="tag" role="listitem"><b>DFM/DFA</b> + tooling</span>
             <span class="tag" role="listitem"><b>ISO 13485</b> design controls</span>
           </div>
 
-          <!-- METRICS (replaces lots of text) -->
           <div class="metrics" aria-label="Key outcomes">
             <div class="metric">
               <div class="big">1M+</div>
@@ -396,22 +396,23 @@
             </div>
             <div class="metric">
               <div class="big">~30%</div>
-              <div class="label">Unit cost reduction via injection molding transition + DFM/DFA</div>
+              <div class="label">Unit cost reduction via molding transition + DFM/DFA</div>
             </div>
             <div class="metric">
               <div class="big">~20%</div>
-              <div class="label">Production downtime reduction through root-cause redesign</div>
+              <div class="label">Downtime reduction through root-cause redesign</div>
             </div>
           </div>
 
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn" href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">LinkedIn</a>
             <button class="btn" type="button" id="copyEmailBtn">Copy Email</button>
-            <a class="btn" href="#case-studies">Jump to Case Studies</a>
+            <a class="btn ghost" href="#case-studies">Jump to Case Studies</a>
           </div>
 
           <p class="subtitle" style="margin-top:12px; color:var(--muted2);">
-            Note: If the PDF link shows 404, confirm the file is uploaded to the repo root and the filename matches exactly.
+            If the PDF link shows 404, confirm the file is uploaded to the repo root and the filename matches exactly.
+            (Tip: rename your PDF to <span style="font-family:var(--mono);">Portfolio.pdf</span> for simplicity.)
           </p>
         </div>
       </div>
@@ -424,7 +425,6 @@
             <span class="badge"><span class="dot"></span>Production-ready</span>
           </div>
 
-          <!-- K/V summary (short, no clutter) -->
           <div class="kv">
             <div class="row">
               <div class="k">Core industries</div>
@@ -440,7 +440,7 @@
             </div>
             <div class="row">
               <div class="k">Location</div>
-              <div class="v">Toronto, ON (Canada) · Open to US roles</div>
+              <div class="v">Toronto, ON (Canada)</div>
             </div>
             <div class="row">
               <div class="k">Sharing notice</div>
@@ -449,8 +449,8 @@
           </div>
 
           <div style="margin-top:12px; border-top:1px solid rgba(255,255,255,.08); padding-top:12px;">
-            <a class="btn primary" href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
-              ⭐ Open Portfolio PDF Now
+            <a class="btn primary" href="./Portfolio.pdf" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+              ⭐ Open Portfolio PDF
             </a>
           </div>
         </div>
@@ -461,7 +461,7 @@
     <section id="case-studies" class="card">
       <div class="section-title">
         <h2>Selected Case Studies</h2>
-        <p>3 bullets each · no clutter</p>
+        <p>Short + high-signal</p>
       </div>
 
       <div class="list">
@@ -495,7 +495,7 @@
     <section id="capabilities" class="card">
       <div class="section-title">
         <h2>Capabilities</h2>
-        <p>what you can hire me for</p>
+        <p>What you can hire me for</p>
       </div>
 
       <div class="list">
@@ -541,7 +541,7 @@
     <section id="contact" class="card">
       <div class="section-title">
         <h2>Contact</h2>
-        <p>fast way to reach me</p>
+        <p>Fast way to reach me</p>
       </div>
 
       <div class="list">
@@ -558,12 +558,12 @@
 
         <div class="item">
           <div class="hdr">
-            <strong>PDF Links</strong>
-            <span class="meta">open / download</span>
+            <strong>Portfolio PDF</strong>
+            <span class="meta">Open / Download</span>
           </div>
           <ul>
-            <li><a href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener"><b>Open Portfolio PDF</b> (US package)</a></li>
-            <li><a href="./Andy_Lee_Canada_Application_Package_Safe_2026.pdf" target="_blank" rel="noopener">Open Canada-safe package</a></li>
+            <li><a href="./Portfolio.pdf" target="_blank" rel="noopener"><b>Open Portfolio PDF</b></a></li>
+            <li><a href="./Portfolio.pdf" download>Download Portfolio PDF</a></li>
           </ul>
         </div>
       </div>
@@ -573,7 +573,7 @@
       <div>© <span id="year"></span> Kwangwon (Andy) Lee · GitHub Pages</div>
       <div class="smalllinks">
         <a href="#top">Back to top</a>
-        <a href="./Andy_Lee_US_Application_Package_2026.pdf" target="_blank" rel="noopener">Open PDF</a>
+        <a href="./Portfolio.pdf" target="_blank" rel="noopener">Open PDF</a>
         <a href="https://www.linkedin.com/in/andy-kwangwon-lee/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
